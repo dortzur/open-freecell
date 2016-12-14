@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {createDeck, createGameDeck} from '../src/creators/game-creator';
+import {createDeck, createGameDeck, createGame} from '../src/creators/game-creator';
 import {kingOfClubs} from "./fixtures/cards";
 
 describe('game-creator', () => {
@@ -11,12 +11,22 @@ describe('game-creator', () => {
 
   it('creates a game deck according to MS game numbers', () => {
 
-    let deck = createGameDeck(1);
-    expect(deck[0].notation).to.eq("JD");
-    expect(deck[51].notation).to.eq("6H");
+    const deckA = createGameDeck(1);
+    const deckB = createGameDeck(617);
 
-    deck = createGameDeck(617);
-    expect(deck[0].notation).to.eq("7D");
-    expect(deck[51].notation).to.eq("4H");
-  })
+    expect(deckA[0].notation).to.eq("JD");
+    expect(deckA[51].notation).to.eq("6H");
+    expect(deckB[0].notation).to.eq("7D");
+    expect(deckB[51].notation).to.eq("4H");
+  });
+  it('creates a game according to MS game numbers', () => {
+    const gameA = createGame(1);
+    const gameB = createGame(617);
+
+    expect(gameA.CCS[0][0].notation).to.eq("JD");
+    expect(gameA.CCS[7][5].notation).to.eq("TC");
+    expect(gameB.CCS[0][0].notation).to.eq("7D");
+    expect(gameB.CCS[7][5].notation).to.eq("QH");
+
+  });
 });

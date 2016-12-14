@@ -24,5 +24,13 @@ export const createGameDeck = (gameNumber) => {
   return deck.reverse();
 };
 export const createGame = (gameNumber) => {
+  const deck = createGameDeck(gameNumber);
+  const HCS = [[], [], [], []];
+  const FCS = [[], [], [], []];
+  const CCS = [[], [], [], [], [], [], [], []];
 
+  for (let i = 0; i < deck.length; i++) {
+    CCS[i % 8].push(deck[i]);
+  }
+  return {HCS, FCS, CCS};
 };
