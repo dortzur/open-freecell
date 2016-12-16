@@ -4,6 +4,7 @@ import {createDeck, createGameDeck, createGame} from '../src/creators/game-creat
 import {kingOfClubs} from "./fixtures/cards";
 
 describe('game-creator', () => {
+
   it('prints a game', () => {
     const gameA = createGame(1);
     console.log(gameA.toString());
