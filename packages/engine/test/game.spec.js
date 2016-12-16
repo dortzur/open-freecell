@@ -1,9 +1,13 @@
 import {expect} from 'chai';
 import {createDeck, createGameDeck, createGame} from '../src/creators/game-creator';
+
 import {kingOfClubs} from "./fixtures/cards";
 
 describe('game-creator', () => {
-
+  it('prints a game', () => {
+    const gameA = createGame(1);
+    console.log(gameA.toString());
+  });
   it('creates a deck of cards', () => {
     const deck = createDeck();
     expect(deck[51]).to.deep.eq(kingOfClubs);
@@ -29,4 +33,5 @@ describe('game-creator', () => {
     expect(gameB.CCS[7][5].notation).to.eq("QH");
 
   });
+
 });

@@ -29,7 +29,7 @@ export const createCard = (notation) => {
   const isRed = !isBlack;
 
   return {
-    suit, rank, value, color, isBlack, isRed,notation
+    suit, rank, value, color, isBlack, isRed, notation
   };
 };
 

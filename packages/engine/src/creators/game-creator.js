@@ -1,5 +1,6 @@
 import {RANKS, SUITS} from "../constants";
 import {createCard} from "./card-creator";
+import {gameToString} from "../services/game-service";
 import srand from "../utils/srand";
 export const createDeck = () => {
   const deck = [];
@@ -32,5 +33,7 @@ export const createGame = (gameNumber) => {
   for (let i = 0; i < deck.length; i++) {
     CCS[i % 8].push(deck[i]);
   }
-  return {HCS, FCS, CCS};
+  const game = {HCS, FCS, CCS};
+  game.toString = gameToString.bind(this, game);
+  return game;
 };
