@@ -2,7 +2,7 @@ import _takeRightWhile from "lodash/takeRightWhile";
 import {areCardsStackable} from "./card-service";
 export const getSortedSubStack = (stack) =>
   _takeRightWhile(stack, (card, index, stack) => {
-    if (index == 0 ) return true;
+    if (index == 0) return true;
     return areCardsStackable(card, stack[index - 1])
   });
 export const isSortedStack = (stack) => {
