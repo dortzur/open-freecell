@@ -9,7 +9,7 @@ export const isSortedStack = (stack) => {
   const subStack = getSortedSubStack(stack);
   return stack.length == subStack.length;
 };
-export const hasEnoughMoves = (stack, availableMoves) => (availableMoves + 1) >= stack.length;
+export const hasEnoughMoves = (stack, availableMoves) => availableMoves >= stack.length;
 export const isMovableStack = (stack, availableMoves) => {
   return isSortedStack(stack) && hasEnoughMoves(stack, availableMoves)
 };

@@ -21,7 +21,7 @@ export const getSubStack = ({game}, {cardNotation}) => {
 };
 export const getAvailableMovesSimple = ({game}) => {
   return getFreeCells({game}).concat(getColumnCells({game}))
-    .filter((cell) => cell.stack.length == 0).length;
+    .filter((cell) => cell.stack.length == 0).length+1;
 };
 
 export const getCell =

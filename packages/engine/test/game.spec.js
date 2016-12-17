@@ -39,7 +39,7 @@ describe('game-creator', () => {
   });
   it('calculates available moves', () => {
     const game = createGame(1);
-    expect(getAvailableMovesSimple({game})).to.eq(4);
+    expect(getAvailableMovesSimple({game})).to.eq(5);
   });
   it('identifies empty cells', () => {
     const game = createGame(1);
