@@ -8,7 +8,7 @@ export const getGameObj = ({game}) => ({
   homeCells: getHomeCells({game}),
   columnCells: getColumnCells({game})
 });
-export const getStack = ({game}, {cardNotation}) => {
+export const getSubStack = ({game}, {cardNotation}) => {
   const cell = game.find((cell) => {
     return cell.stack.filter((card) => card.notation == cardNotation).length > 0;
   });
@@ -16,4 +16,8 @@ export const getStack = ({game}, {cardNotation}) => {
   const stack = cell.stack.slice(cardIndex, cell.stack.length);
   stack.cell = cell;
   return stack;
+};
+export const getAvailableMovesSimple = ({game}) => {
+  return getFreeCells({game}).concat(getColumnCells({game}))
+    .filter((cell) => cell.stack.length == 0).length;
 };

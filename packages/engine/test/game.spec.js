@@ -2,7 +2,7 @@ import {expect} from 'chai';
 import {createDeck, createGameDeck, createGame} from '../src/creators/game-creator';
 import {createCard} from '../src/creators/card-creator';
 
-import {getGameObj} from "../src/state/selectors";
+import {getGameObj, getAvailableMovesSimple} from "../src/state/selectors";
 
 describe('game-creator', () => {
 
@@ -35,5 +35,8 @@ describe('game-creator', () => {
     expect(gameB.columnCells[7].stack[5].notation).to.eq("QH");
 
   });
-
+  it('calculates available moves',()=>{
+    const game = createGame(1);
+    expect(getAvailableMovesSimple({game})).to.eq(4);
+  })
 });
