@@ -68,7 +68,12 @@ describe('actions', () => {
     game.print();
     store.dispatch(moveToColumnCell("TS", 7));
     game.print();
-
+    store.dispatch(moveToColumnCell("9D", 7));
+    game.print();
+    store.dispatch(moveToColumnCell("8D", 2));
+    game.print();
+    store.dispatch(moveToColumnCell("8C", 7));
+    game.print();
 
   })
 
