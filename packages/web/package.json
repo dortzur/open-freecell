@@ -1,7 +1,11 @@
 {
   "name": "open-freecell-web",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "repository": "dortzur/open-freecell",
+  "keywords": [
+    "freecell",
+    "free cell"
+  ],
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
@@ -47,7 +51,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
-    "open-freecell-engine": "^0.1.0",
+    "open-freecell-engine": "^0.1.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
