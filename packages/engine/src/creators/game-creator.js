@@ -13,7 +13,7 @@ export const gameToString = (game) => {
     if (cell.stack.length == 0) {
       string += "[  ]\t";
     } else {
-      string = `[${cell.stack[0].notation}]\t`
+      string += `[${cell.stack[0].notation}]\t`
     }
   });
   string += "\n\n";
