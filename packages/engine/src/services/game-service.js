@@ -1,7 +1,7 @@
 import {getGameObj} from "../state/selectors";
 export const gameToString = (game) => {
   const gameObj = getGameObj({game});
-  let string = "";
+  let string = "\n\n";
   gameObj.freeCells.concat(gameObj.homeCells).forEach((cell, index) => {
     if (cell.stack.length == 0) {
       string += "[  ]\t";
