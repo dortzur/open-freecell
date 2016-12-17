@@ -8,11 +8,11 @@ const store = configureStore({game});
 
 
 import {expect} from 'chai';
-import {moveToColumnCell, moveToFreeCell, moveToHomeCell} from '../src/state/actions';
+import {moveToColumnCell, moveToFreeCell, moveToHomeCell} from '../src/state/module';
 
 describe('actions', () => {
   it('moves card to home cell', () => {
-    store.dispatch(moveToHomeCell(game.CCS[0][5],2));
+    store.dispatch(moveToHomeCell("AD", 2));
   })
 
 });
