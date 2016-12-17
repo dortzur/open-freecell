@@ -26,6 +26,9 @@ describe('actions', () => {
 
 
   it('make valid card moves', () => {
+    const MVF = moveToFreeCell;
+    const MVH = moveToHomeCell;
+    const MVC = moveToColumnCell;
     const store = configureStore({game});
     game.print();
     store.dispatch(moveToFreeCell("TC", 2));
@@ -74,7 +77,64 @@ describe('actions', () => {
     game.print();
     store.dispatch(moveToColumnCell("8C", 7));
     game.print();
+    store.dispatch(moveToColumnCell("JH", 3));
+    game.print();
 
+    store.dispatch(moveToColumnCell("TC", 3));
+    game.print();
+    store.dispatch(moveToFreeCell("8D", 3));
+    game.print();
+    store.dispatch(moveToFreeCell("9S", 2));
+    game.print();
+    store.dispatch(moveToColumnCell("9H",3));
+    game.print();
+
+    store.dispatch(moveToFreeCell("8D", 3));
+    game.print();
+    store.dispatch(moveToFreeCell("9S", 2));
+    game.print();
+    store.dispatch(moveToColumnCell("9S", 2));
+    game.print();
+    store.dispatch(moveToColumnCell("8D", 2));
+    game.print();
+    store.dispatch(moveToFreeCell("4D", 0));
+    game.print();
+    store.dispatch(moveToHomeCell("AH", 2));
+    game.print();
+    store.dispatch(moveToFreeCell("KH", 2));
+    game.print();
+    store.dispatch(MVC("7C", 2));
+    game.print();
+    store.dispatch(MVC("5H", 7));
+    game.print();
+    store.dispatch(MVC("KH", 6));
+    game.print();
+    store.dispatch(MVC("QC", 6));
+    game.print();
+    store.dispatch(MVC("6S", 5));
+    game.print();
+    store.dispatch(MVC("6D", 2));
+    game.print();
+    store.dispatch(MVH("2H", 2));
+    game.print();
+    store.dispatch(MVH("3C", 0));
+    game.print();
+    store.dispatch(MVH("3H", 2));
+    game.print();
+    store.dispatch(MVH("4H", 2));
+    game.print();
+    store.dispatch(MVF("JS", 2));
+    game.print();
+    store.dispatch(MVH("AD", 3));
+    game.print();
+    store.dispatch(MVC("5D", 5));
+    game.print();
+    store.dispatch(MVC("JH", 6));
+    game.print();
+    store.dispatch(MVC("4C", 5));
+    game.print();
+    store.dispatch(MVH("4C", 0));
+    game.print();
   })
 
 

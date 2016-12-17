@@ -36,6 +36,10 @@ export const canStackColumnCell = ({game}, {stack, columnCellIndex}) => {
 };
 export const canMoveToHomeCell = ({game}, {stack, homeCellIndex}) => {
   const homeCell = getCell({game}, {cellType: CELL_TYPES.HOME_CELL, cellIndex: homeCellIndex})
+  if(stack.length!==1) {
+    return false;
+  }
   const card = stack[0];
+
   return canStackHomeCell(card, homeCell.stack);
 };
