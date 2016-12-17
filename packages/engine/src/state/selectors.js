@@ -21,3 +21,9 @@ export const getAvailableMovesSimple = ({game}) => {
   return getFreeCells({game}).concat(getColumnCells({game}))
     .filter((cell) => cell.stack.length == 0).length;
 };
+
+export const getCell =
+  ({game}, {cellType, cellIndex}) => game.filter((cell) => cell.type == cellType)[cellIndex];
+
+export const isCellEmpty =
+  ({game}, {cellType, cellIndex}) => getCell({game}, {cellType, cellIndex}).stack.length == 0;

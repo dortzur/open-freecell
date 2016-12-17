@@ -1,8 +1,10 @@
 import {expect} from 'chai';
-import {createDeck, createGameDeck, createGame} from '../src/creators/game-creator';
+import {createGame} from '../src/creators/game-creator';
+import {createDeck, createGameDeck} from '../src/creators/deck-creator';
 import {createCard} from '../src/creators/card-creator';
 
-import {getGameObj, getAvailableMovesSimple} from "../src/state/selectors";
+import {getGameObj, getAvailableMovesSimple, isCellEmpty} from "../src/state/selectors";
+import {CELL_TYPES} from "../src/constants";
 
 describe('game-creator', () => {
 
@@ -35,8 +37,14 @@ describe('game-creator', () => {
     expect(gameB.columnCells[7].stack[5].notation).to.eq("QH");
 
   });
-  it('calculates available moves',()=>{
+  it('calculates available moves', () => {
     const game = createGame(1);
     expect(getAvailableMovesSimple({game})).to.eq(4);
+  });
+  it('identifies empty cells', () => {
+    const game = createGame(1);
+    expect(isCellEmpty({game}, {cellType: CELL_TYPES.FREE_CELL, cellIndex: 0})).to.be.true;
+    expect(isCellEmpty({game}, {cellType: CELL_TYPES.HOME_CELL, cellIndex: 0})).to.be.true;
+    expect(isCellEmpty({game}, {cellType: CELL_TYPES.COLUMN_CELL, cellIndex: 0})).to.be.false;
   })
 });
