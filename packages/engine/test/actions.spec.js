@@ -103,6 +103,10 @@ describe('actions', () => {
     game.print();
     store.dispatch(moveToFreeCell("KH", 2));
     game.print();
+
+
+
+
     store.dispatch(MVC("7C", 2));
     game.print();
     store.dispatch(MVC("5H", 7));
@@ -117,12 +121,19 @@ describe('actions', () => {
     game.print();
     store.dispatch(MVH("2H", 2));
     game.print();
+
+
+
+
     store.dispatch(MVH("3C", 0));
     game.print();
+
     store.dispatch(MVH("3H", 2));
     game.print();
+
     store.dispatch(MVH("4H", 2));
     game.print();
+
     store.dispatch(MVF("JS", 2));
     game.print();
     store.dispatch(MVH("AD", 3));
@@ -131,8 +142,11 @@ describe('actions', () => {
     game.print();
     store.dispatch(MVC("JH", 6));
     game.print();
-    store.dispatch(MVC("4C", 5));
+
+
+    store.dispatch(MVF("3S", 1));
     game.print();
+
     store.dispatch(MVH("4C", 0));
     game.print();
     store.dispatch(MVC("2S", 7));
@@ -195,13 +209,14 @@ describe('actions', () => {
     game.print();
     store.dispatch(MVF("TH", 0));
     game.print();
-    // store.dispatch(MVC("QD", 5));
-    // game.print();
-    // game.print();
-    // store.dispatch(MVH("5S", 2));
-    // game.print();
-    // store.dispatch(MVC("JC", 5));
-    // game.print();
+    store.dispatch(MVC("QD", 5));
+    game.print();
+
+    game.print();
+    store.dispatch(MVH("5S", 2));
+    game.print();
+    store.dispatch(MVC("JC", 5));
+    game.print();
 
   })
 
