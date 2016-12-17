@@ -9,20 +9,21 @@ const createCell = (cellType, index) => ({type: cellType, index, stack: []});
 export const gameToString = (game) => {
   const gameObj = getGameObj({game});
   let string = "\n\n";
-  gameObj.freeCells.concat(gameObj.homeCells).forEach((cell) => {
-    if (cell.stack.length == 0) {
-      string += "[  ]\t";
-    } else {
-      string += `[${cell.stack[0].notation}]\t`
-    }
-  });
+  string += cellsToString(gameObj.freeCells, {singleLine: true});
+  string += cellsToString(gameObj.homeCells, {padding: true});
   string += "\n\n";
+  string += cellsToString(gameObj.columnCells);
+  return string;
+};
+function cellsToString(cells, options = {}) {
+  let string = "";
   let j = 0;
+  const length = cells.length;
   let emptyCount = 0;
   do {
     let line = "";
-    for (let i = 0; i < 8; i++) {
-      let card = gameObj.columnCells[i].stack[j];
+    for (let i = 0; i < length; i++) {
+      let card = cells[i].stack[j];
       if (card == undefined || card.length == 0) {
         line += "[  ]\t";
         emptyCount++;
@@ -31,15 +32,20 @@ export const gameToString = (game) => {
       }
     }
     j++;
-    line += "\n";
-    if (emptyCount < 8) {
+    if (!options.singleLine) {
+      line += "\n";
+    }
+    if (options.padding) {
+      line += "\t\t\t\t\t\t\t\t"
+    }
+    if (emptyCount < length || string.length == 0) {
       emptyCount = 0;
       string += line;
       line = "";
     }
-  } while (emptyCount < 8);
+  } while (emptyCount < length);
   return string;
-};
+}
 export const printGame = (game) => console.log(gameToString(game));
 export const createGame = (gameNumber) => {
   const deck = createGameDeck(gameNumber);
