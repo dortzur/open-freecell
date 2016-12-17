@@ -14,6 +14,7 @@ export const isMovableStack = (stack, availableMoves) => {
   return isSortedStack(stack) && hasEnoughMoves(stack, availableMoves)
 };
 export const areStacksStackable = (sourceStack, targetStack) => {
+  if (targetStack.length == 0) return true;
   return areCardsStackable(sourceStack[0], targetStack[targetStack.length - 1]);
 };
 export const canStackHomeCell = (card, homeCellStack) => {
