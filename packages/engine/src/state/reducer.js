@@ -16,6 +16,7 @@ const performMove = (game, subStack, cellType, cellIndex) => {
     return cell;
   });
 };
+
 export default  (state = initialState, action) => {
   const {type, payload}=action;
   if (action.error) {

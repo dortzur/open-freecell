@@ -34,8 +34,26 @@ describe('actions', () => {
     game.print();
     store.dispatch(moveToColumnCell("6H", 7));
     game.print();
-    store.dispatch(moveToColumnCell("9C", 7));
+    store.dispatch(moveToColumnCell("6C", 6));
     game.print();
+    store.dispatch(moveToColumnCell("7S", 4));
+    game.print();
+    store.dispatch(moveToColumnCell("8H", 1));
+    game.print();
+    store.dispatch(moveToColumnCell("3C", 4));
+    game.print();
+    store.dispatch(moveToColumnCell("2H", 4));
+    game.print();
+    store.dispatch(moveToFreeCell("3D", 1));
+    game.print();
+    store.dispatch(moveToFreeCell("2C", 0));
+    game.print();
+    store.dispatch(moveToHomeCell("AC", 0));
+    game.print();
+    store.dispatch(moveToHomeCell("AS", 1));
+    game.print();
+    // store.dispatch(moveToHomeCell("2C", 0));
+    // game.print();
   })
 
 

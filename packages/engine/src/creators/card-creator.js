@@ -1,7 +1,7 @@
 const getCardValue = (rank) => {
   switch (rank) {
     case "A":
-      return 2;
+      return 1;
     case "T":
       return 10;
     case "J":
