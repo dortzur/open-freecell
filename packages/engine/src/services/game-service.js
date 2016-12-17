@@ -1,10 +1,12 @@
+import {getGameObj} from "../state/selectors";
 export const gameToString = (game) => {
+  const gameObj = getGameObj({game});
   let string = "";
-  game.FCS.concat(game.HCS).forEach((cell, index) => {
-    if (cell.length == 0) {
+  gameObj.freeCells.concat(gameObj.homeCells).forEach((cell, index) => {
+    if (cell.stack.length == 0) {
       string += "[  ]\t";
     } else {
-      string = `[${cell[0].notation}]`
+      string = `[${cell.stack[0].notation}]`
     }
   });
   string += "\n\n";
@@ -13,7 +15,7 @@ export const gameToString = (game) => {
   do {
     let line = "";
     for (let i = 0; i < 8; i++) {
-      let card = game.CCS[i][j];
+      let card = gameObj.columnCells[i].stack[j];
       if (card == undefined || card.length == 0) {
         line += "[  ]\t";
         emptyCount++;

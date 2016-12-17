@@ -14,3 +14,9 @@ export const RANKS = [
   , "Q"
   , "K"
 ];
+export const CELL_TYPES = {
+  HOME_CELL: "HOME_CELL",
+  FREE_CELL: "FREE_CELL",
+  COLUMN_CELL: "COLUMN_CELL",
+
+};
