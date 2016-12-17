@@ -21,6 +21,6 @@ export const canStackHomeCell = (card, homeCellStack) => {
     return card.value == 1;
   }
   const topHomeCellCard = homeCellStack[homeCellStack.length - 1];
-  return topHomeCellCard.suit == card.suit && topHomeCellCard.value - card.value == 1;
+  return topHomeCellCard.suit == card.suit && topHomeCellCard.value - card.value == -1;
 };
 

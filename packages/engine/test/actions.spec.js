@@ -52,8 +52,8 @@ describe('actions', () => {
     game.print();
     store.dispatch(moveToHomeCell("AS", 1));
     game.print();
-    // store.dispatch(moveToHomeCell("2C", 0));
-    // game.print();
+    store.dispatch(moveToHomeCell("2C", 0));
+    game.print();
   })
 
 
