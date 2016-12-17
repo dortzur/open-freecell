@@ -1,7 +1,7 @@
 export const MOVE_TO_HOME_CELL = "MOVE_TO_HOME_CELL";
 export const MOVE_TO_COLUMN_CELL = "MOVE_TO_COLUMN_CELL";
 export const MOVE_TO_FREE_CELL = "MOVE_TO_FREE_CELL";
-import {getSubStack, getAvailableMovesSimple, isCellEmpty} from "./selectors";
+import {getSubStack, getAvailableMovesSimple, isCellEmpty, canStackColumn} from "./selectors";
 import {isMovableStack} from "../services/card-stack-service";
 import {CELL_TYPES} from "../constants";
 export const moveToHomeCell = (cardNotation, cellIndex) => (dispatch, getState) => {
@@ -12,10 +12,13 @@ export const moveToColumnCell = (cardNotation, cellIndex) => (dispatch, getState
   const availableMoves = getAvailableMovesSimple(state);
   const isMovable = isMovableStack(subStack, availableMoves);
 
+
   if (!isMovable) {
     return dispatch({type: MOVE_TO_COLUMN_CELL, payload: new Error("Can't move these cards")});
   }
-
+  if (!canStackColumn(state, {stack: subStack, columnCellIndex: cellIndex})) {
+    return dispatch({type: MOVE_TO_COLUMN_CELL, payload: new Error("Can't stack column")});
+  }
   return dispatch({type: MOVE_TO_COLUMN_CELL, payload: {subStack, cellIndex}})
 
 };

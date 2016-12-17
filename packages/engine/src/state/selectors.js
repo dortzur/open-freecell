@@ -1,4 +1,6 @@
 import _findIndex from "lodash/findIndex";
+import {CELL_TYPES} from "../constants";
+import {areStacksStackable} from "../services/card-stack-service"
 export const getFreeCells = ({game}) => game.slice(0, 4);
 export const getHomeCells = ({game}) => game.slice(4, 8);
 export const getColumnCells = ({game}) => game.slice(8, 16);
@@ -27,3 +29,8 @@ export const getCell =
 
 export const isCellEmpty =
   ({game}, {cellType, cellIndex}) => getCell({game}, {cellType, cellIndex}).stack.length == 0;
+
+export const canStackColumn = ({game}, {stack, columnCellIndex}) => {
+  const columnCell = getCell({game}, {cellType: CELL_TYPES.COLUMN_CELL, cellIndex: columnCellIndex})
+  return areStacksStackable(stack, columnCell.stack)
+};

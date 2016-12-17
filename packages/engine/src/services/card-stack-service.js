@@ -13,3 +13,7 @@ export const hasEnoughMoves = (stack, availableMoves) => availableMoves >= stack
 export const isMovableStack = (stack, availableMoves) => {
   return isSortedStack(stack) && hasEnoughMoves(stack, availableMoves)
 };
+export const areStacksStackable = (sourceStack, targetStack) => {
+  return areCardsStackable(sourceStack[0], targetStack[targetStack.length - 1]);
+};
+
