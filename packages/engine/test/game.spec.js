@@ -1,18 +1,18 @@
 import {expect} from 'chai';
 import {createDeck, createGameDeck, createGame} from '../src/creators/game-creator';
+import {createCard} from '../src/creators/card-creator';
 
-import {kingOfClubs} from "./fixtures/cards";
 import {getGameObj} from "../src/state/selectors";
 
 describe('game-creator', () => {
 
   it('prints a game', () => {
     const gameA = createGame(1);
-    console.log(gameA.toString());
+    // console.log(gameA.toString());
   });
   it('creates a deck of cards', () => {
     const deck = createDeck();
-    expect(deck[51]).to.deep.eq(kingOfClubs);
+    expect(deck[51]).to.deep.eq(createCard("KS"));
   });
 
   it('creates a game deck according to MS game numbers', () => {
