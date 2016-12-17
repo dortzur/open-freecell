@@ -26,6 +26,7 @@ describe('actions', () => {
   it('moves a valid card to free cell', () => {
     game.print();
     store.dispatch(moveToFreeCell("TC", 2));
+    game.print();
   });
 
   it('moves a valid card to column cell', () => {

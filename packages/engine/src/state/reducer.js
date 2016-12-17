@@ -1,4 +1,4 @@
-import {MOVE_TO_HOME_CELL} from "./actions";
+import {MOVE_TO_HOME_CELL, MOVE_TO_FREE_CELL} from "./actions";
 const initialState = {game: []};
 export default  (state = initialState, action) => {
   const {type, payload}=action;
@@ -13,9 +13,11 @@ export default  (state = initialState, action) => {
     case MOVE_TO_HOME_CELL: {
       return {...state};
     }
+    case MOVE_TO_FREE_CELL: {
+      return {...state};
+    }
     default:
       return state;
-
   }
 };
 

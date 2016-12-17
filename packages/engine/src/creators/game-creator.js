@@ -5,7 +5,7 @@ import _times from "lodash/times";
 import {getGameObj} from "../state/selectors";
 
 
-const createCell = (cellType, cardStack = []) => ({type: cellType, stack: cardStack});
+const createCell = (cellType, index) => ({type: cellType, index, stack: []});
 export const gameToString = (game) => {
   const gameObj = getGameObj({game});
   let string = "\n\n";
@@ -43,9 +43,9 @@ export const gameToString = (game) => {
 export const printGame = (game) => console.log(gameToString(game));
 export const createGame = (gameNumber) => {
   const deck = createGameDeck(gameNumber);
-  const FCS = _times(4, () => createCell(CELL_TYPES.FREE_CELL));
-  const HCS = _times(4, () => createCell(CELL_TYPES.HOME_CELL));
-  const CCS = _times(8, () => createCell(CELL_TYPES.COLUMN_CELL));
+  const FCS = _times(4, (index) => createCell(CELL_TYPES.FREE_CELL, index));
+  const HCS = _times(4, (index) => createCell(CELL_TYPES.HOME_CELL, index));
+  const CCS = _times(8, (index) => createCell(CELL_TYPES.COLUMN_CELL, index));
 
 
   for (let i = 0; i < deck.length; i++) {

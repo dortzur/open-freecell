@@ -23,7 +23,7 @@ export const getAvailableMovesSimple = ({game}) => {
 };
 
 export const getCell =
-  ({game}, {cellType, cellIndex}) => game.filter((cell) => cell.type == cellType)[cellIndex];
+  ({game}, {cellType, cellIndex}) => game.find((cell) => cell.type == cellType && cell.index == cellIndex);
 
 export const isCellEmpty =
   ({game}, {cellType, cellIndex}) => getCell({game}, {cellType, cellIndex}).stack.length == 0;
