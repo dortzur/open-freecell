@@ -1,5 +1,19 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.free-cells,.home-cells{
+    display: inline-block;
+}
+.column-cells{
+    margin-top: 30px;
+}
+.cell {
+    border: 5px solid #eee;
+    border-radius: 16px;
+    height: 100px;
+    width: 66px;
+    display: inline-block;
+    margin-right: 10px;
 }
