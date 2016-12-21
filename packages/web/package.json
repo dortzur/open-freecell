@@ -55,6 +55,8 @@
     "open-freecell-engine": "^0.1.1",
     "react": "^15.4.1",
     "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
+    "react-dnd-touch-backend": "^0.3.5",
     "react-dom": "^15.4.1"
   },
   "scripts": {
