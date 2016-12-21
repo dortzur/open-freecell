@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import "./modules/react-playing-cards/playingcards.css";
 import './App.css';
 import Cell from "./cell.js"
+import {Card, ranks, suits}  from "./modules/react-playing-cards"
 class App extends Component {
     render() {
         return (
@@ -28,6 +29,10 @@ class App extends Component {
                     <Cell/>
                     <Cell/>
                     <Cell/>
+                </div>
+
+                <div>
+                    <Card suit={suits.club} rank={ranks.ace}/>
                 </div>
             </div>
         );

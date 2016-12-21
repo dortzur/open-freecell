@@ -51,6 +51,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "open-freecell-engine": "^0.1.1",
     "react": "^15.4.1",
     "react-dnd": "^2.1.4",
