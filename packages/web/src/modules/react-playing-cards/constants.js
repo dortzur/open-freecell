@@ -6,17 +6,17 @@ export const suits = {
     },
     diamond: {
         name: 'diamond',
-        symbol: '&diams;',
+        symbol: '♦',
         color: 'red'
     },
     spade: {
         name: 'spade',
-        symbol: '&spades;',
+        symbol: '♠',
         color: 'black'
     },
     heart: {
         name: 'heart',
-        symbol: '&hearts;',
+        symbol: '♥',
         color: 'red'
     }
 };
