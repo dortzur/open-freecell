@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React from 'react'
 import {FaceCard}from "./card-templates/face-card";
 import {NumberCard}from "./card-templates/number-card";

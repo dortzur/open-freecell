@@ -32,8 +32,13 @@ class App extends Component {
                 </div>
 
                 <div>
-                    <Card suit={suits.diamond} rank={ranks.jack}/>
-                    <Card suit={suits.diamond} rank={ranks.ace}/>
+                    <Card suit={suits.club} rank={ranks.jack}/>
+                    <Card suit={suits.spade} rank={ranks.nine}/>
+                    <Card suit={suits.diamond} rank={ranks.eight}/>
+                    <Card suit={suits.club} rank={ranks.three}/>
+                    <Card suit={suits.heart} rank={ranks.five}/>
+                    <Card suit={suits.spade} rank={ranks.ten}/>
+                    <Card suit={suits.diamond} rank={ranks.seven}/>
                 </div>
             </div>
         );
