@@ -33,7 +33,7 @@ class App extends Component {
 
                 <div>
                     <Card suit={suits.diamond} rank={ranks.jack}/>
-                    <Card suit={suits.heart} rank={ranks.ten}/>
+                    <Card suit={suits.diamond} rank={ranks.ace}/>
                 </div>
             </div>
         );
