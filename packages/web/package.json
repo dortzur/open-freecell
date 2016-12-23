@@ -51,13 +51,16 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "classnames": "^2.2.5",
+    "node-sass": "^4.1.1",
     "open-freecell-engine": "^0.1.1",
     "react": "^15.4.1",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
     "react-dnd-touch-backend": "^0.3.5",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "sass-loader": "^4.1.1"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -89,6 +92,9 @@
     }
   },
   "babel": {
+    "plugins": [
+      "transform-decorators-legacy"
+    ],
     "presets": [
       "react-app"
     ]
