@@ -3,8 +3,6 @@ export const kingOfSpades = {
   rank: 'K',
   value: 13,
   color: 'black',
-  isBlack: true,
-  isRed: false,
   notation: 'KS'
 };
 export const jackOfSpades = {
@@ -12,8 +10,6 @@ export const jackOfSpades = {
   rank: 'J',
   value: 11,
   color: 'black',
-  isBlack: true,
-  isRed: false,
   notation: 'JS'
 };
 export const queenOfHearts = {
@@ -21,8 +17,6 @@ export const queenOfHearts = {
   rank: 'Q',
   value: 12,
   color: 'red',
-  isBlack: false,
-  isRed: true,
   notation: 'QH'
 };
 export const tenOfDiamonds = {
@@ -30,7 +24,5 @@ export const tenOfDiamonds = {
   rank: 'T',
   value: 10,
   color: 'red',
-  isBlack: false,
-  isRed: true,
   notation: 'TD'
 };

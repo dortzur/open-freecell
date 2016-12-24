@@ -1,7 +1,7 @@
 import configureStore from "../src/configure-store";
 
 import {createGame} from "../src/creators/game-creator";
-import {getGameObj} from "../src/state/selectors";
+import {newGame} from "../src/state/actions"
 const game = createGame(1);
 
 
@@ -31,7 +31,8 @@ describe('actions', () => {
     const MVF = moveToFreeCell;
     const MVH = moveToHomeCell;
     const MVC = moveToColumnCell;
-    const store = configureStore({game});
+    const store = configureStore();
+    store.dispatch(newGame(1));
     store.dispatch(moveToFreeCell("TC", 2));
     store.dispatch(moveToColumnCell("7D", 6));
     store.dispatch(moveToColumnCell("6H", 7));

@@ -25,11 +25,9 @@ export const createCard = (notation) => {
   const rank = notation[0];
   const value = getCardValue(rank);
   const color = getCardColor(suit);
-  const isBlack = color == "black";
-  const isRed = !isBlack;
 
   return {
-    suit, rank, value, color, isBlack, isRed, notation
+    suit, rank, value, color, notation
   };
 };
 

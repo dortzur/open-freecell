@@ -1,4 +1,4 @@
-import {MOVE_TO_HOME_CELL, MOVE_TO_COLUMN_CELL, MOVE_TO_FREE_CELL} from "./actions";
+import {MOVE_TO_HOME_CELL, MOVE_TO_COLUMN_CELL, MOVE_TO_FREE_CELL, NEW_GAME} from "./actions";
 import {CELL_TYPES} from "../constants";
 import _differenceBy from "lodash/differenceBy";
 const initialState = {game: []};
@@ -23,6 +23,9 @@ export default  (state = initialState, action) => {
     return state;
   }
   switch (type) {
+    case NEW_GAME: {
+      return {...state, game: payload.game}
+    }
     case MOVE_TO_HOME_CELL: {
       const {subStack, cellIndex}=payload;
       state.game = performMove(state.game, subStack, CELL_TYPES.HOME_CELL, cellIndex);

@@ -2,9 +2,12 @@ export const MOVE_TO_HOME_CELL = "MOVE_TO_HOME_CELL";
 export const MOVE_TO_COLUMN_CELL = "MOVE_TO_COLUMN_CELL";
 export const MOVE_TO_FREE_CELL = "MOVE_TO_FREE_CELL";
 export const MOVE_ERROR = "MOVER_ERROR";
+export const NEW_GAME = "NEW_GAME";
 import {getSubStack, getAvailableMovesSimple, isCellEmpty, canStackColumnCell, canMoveToHomeCell} from "./selectors";
 import {isMovableStack} from "../services/card-stack-service";
 import {CELL_TYPES} from "../constants";
+import _random from "lodash/random";
+import {createGame} from "../creators/game-creator"
 export const moveToHomeCell = (cardNotation, cellIndex) => (dispatch, getState) => {
   const state = getState();
   const subStack = getSubStack(state, {cardNotation});
@@ -49,3 +52,10 @@ export const moveToFreeCell = (cardNotation, cellIndex) => (dispatch, getState) 
 
 };
 
+export const newGame = (gameNumber = null) => {
+  if (!gameNumber) {
+    gameNumber = _random(1, 1000);
+  }
+  const game = createGame(gameNumber);
+  return {type: NEW_GAME, payload: {game}}
+}
