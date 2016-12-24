@@ -2,7 +2,7 @@ import {getGameObj} from "../state/selectors";
 const colors = require('colors');
 export const gameToString = (game) => {
   const gameObj = getGameObj({game});
-  let string = "\n\n";
+  let string = "\n";
   string += cellsToString(gameObj.freeCells, {singleLine: true});
   string += cellsToString(gameObj.homeCells, {padding: true});
   string += "\n\n";
