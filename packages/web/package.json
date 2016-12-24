@@ -1,6 +1,6 @@
 {
   "name": "open-freecell-web",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": "dortzur/open-freecell",
   "keywords": [
     "freecell",
@@ -61,7 +61,7 @@
     "node-sass": "^4.1.1",
     "normalize.css": "^5.0.0",
     "normalizr": "^2.2.1",
-    "open-freecell-engine": "^0.2.0",
+    "open-freecell-engine": "^0.2.1",
     "react": "^15.4.1",
     "react-anime": "^0.3.4",
     "react-dom": "^15.4.1",
