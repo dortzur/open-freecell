@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import "./modules/react-playing-cards/playingcards.css";
-import './app.css';
+import './App.css';
+import "dragula/dist/dragula.css";
 import Cell from "./components/cell";
 import {Card, ranks, suits}  from "./modules/react-playing-cards"
-import {DraggableCard} from "./components/dnd/card-dnd";
-import HTML5Backend from "react-dnd-html5-backend";
-import {DragDropContext} from "react-dnd";
-@DragDropContext(HTML5Backend)
 class App extends Component {
+
+    componentDidMount() {
+
+    }
+
     render() {
         return (
             <div>
@@ -36,9 +38,9 @@ class App extends Component {
                 </div>
 
                 <div>
-                    <DraggableCard suit={suits.club} rank={ranks.jack}/>
-                    <DraggableCard suit={suits.spade} rank={ranks.nine}/>
-                    <DraggableCard suit={suits.diamond} rank={ranks.eight}/>
+                    <Card suit={suits.club} rank={ranks.jack}/>
+                    <Card suit={suits.spade} rank={ranks.nine}/>
+                    <Card suit={suits.diamond} rank={ranks.eight}/>
                     <Card suit={suits.club} rank={ranks.three}/>
                     <Card suit={suits.heart} rank={ranks.five}/>
                     <Card suit={suits.spade} rank={ranks.ten}/>

@@ -1,5 +1,11 @@
 
 
 .card{
-  font-size: 0.5em;
+  font-size: 0.35em;
+  width: 10em;
+  height: 14em;
+}
+.card .face img{
+  width:5.4em;
+  height: 9.12em;
 }
