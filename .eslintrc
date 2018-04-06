@@ -32,7 +32,7 @@
 //    "react/jsx-no-target-blank": "error",
 //    "react/no-deprecated": "warn",
 //    "react/no-find-dom-node": "error",
-
+    "padded-blocks": "off",
     "no-trailing-spaces": "off",
     "spaced-comment": "off",
     "space-before-blocks": "off",
