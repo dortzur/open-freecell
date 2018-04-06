@@ -1,10 +1,12 @@
 import { srand } from '../../utils';
 import { deck } from '../../models/deck';
-import normalizr from 'normalizr';
+import { normalize } from 'normalizr';
+import schema from '../schema';
+
 export const START_GAME = 'START_GAME';
 
 export const startGame = (gameNumber) => {
-  const gameDeck = { ...deck };
+  const gameDeck = [...deck];
   const rand = srand(gameNumber);
   for (let i = gameDeck.length - 1; i > 0; i--) {
     const r = rand() % (i + 1);
@@ -18,13 +20,12 @@ export const startGame = (gameNumber) => {
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case START_GAME:{
-
-
+    case START_GAME: {
+      const data = normalize({ deck: action.payload.gameDeck }, schema);
+      return { ...state, deck: data.result.deck };
     }
-    default:{
+    default: {
       return state;
     }
   }
-
 };

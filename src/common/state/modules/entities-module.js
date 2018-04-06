@@ -1,9 +1,11 @@
 import { START_GAME } from './game-module';
-import normalizr from 'normalizr';
-
+import { normalize } from 'normalizr';
+import schema from '../schema';
 export default (state = {}, action) => {
   switch (action.type) {
     case START_GAME: {
+      const data = normalize({ deck: action.payload.gameDeck }, schema);
+      return { ...state, cards: data.entities.cards };
     }
     default: {
       return state;
