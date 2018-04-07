@@ -17,6 +17,23 @@ export const RANKS = [
   'Q',
   'K',
 ];
+
+const SUITS2 = { CLUBS: 'C', DIAMONDS: 'D', HEARTS: 'H', SPADES: 'S' };
+const RANKS2 = {
+  ACE: 'A',
+  TWO: '2',
+  THREE: '3',
+  FOUR: '4',
+  FIVE: '5',
+  SIX: '6',
+  SEVEN: '7',
+  EIGHT: '8',
+  NINE: '9',
+  TEN: 'T',
+  JACK: 'J',
+  QUEEN: 'Q',
+  KING: 'K',
+};
 export const CELL_TYPES = {
   HOME_CELL: 'HOME_CELL',
   FREE_CELL: 'FREE_CELL',
