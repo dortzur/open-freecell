@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { TopRow } from './top-row';
 import { Table } from './table';
 import { RANKS, SUITS, Card } from 'react-playing-cards';
-import 'react-playing-cards/lib/main.css';
+
 
 @connect()
 export class Board extends React.PureComponent {
