@@ -6,6 +6,7 @@ import express from 'express';
 import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
+import { startGame } from '../common/state/modules/game-module';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
@@ -23,6 +24,7 @@ server
 
     // Create a new Redux store instance
     const store = configureStore(preloadedState);
+    store.dispatch(startGame(100));
 
     // Render the component to a string
     const markup = renderToString(

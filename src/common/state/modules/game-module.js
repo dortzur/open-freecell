@@ -5,6 +5,18 @@ import schema from '../schema';
 
 export const START_GAME = 'START_GAME';
 
+export default (state = {}, action) => {
+  switch (action.type) {
+    case START_GAME: {
+      const data = normalize({ deck: action.payload.gameDeck }, schema);
+      return { ...state, deck: data.result.deck };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 export const startGame = (gameNumber) => {
   const gameDeck = [...deck];
   const rand = srand(gameNumber);
@@ -18,14 +30,4 @@ export const startGame = (gameNumber) => {
   return { type: START_GAME, payload: { gameDeck } };
 };
 
-export default (state = {}, action) => {
-  switch (action.type) {
-    case START_GAME: {
-      const data = normalize({ deck: action.payload.gameDeck }, schema);
-      return { ...state, deck: data.result.deck };
-    }
-    default: {
-      return state;
-    }
-  }
-};
+const getCard = (state, id) => state.entities.cards[id];

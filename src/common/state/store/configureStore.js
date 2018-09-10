@@ -17,7 +17,9 @@ const configureStore = (preloadedState) => {
       store.replaceReducer(nextRootReducer);
     });
   }
-
+  if (global.window) {
+    window.__DEV_STORE__ = store;
+  }
   return store;
 };
 
