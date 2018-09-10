@@ -1,9 +1,8 @@
 import { normalize } from 'normalizr';
-import schema from '../schema';
+import schema from '../../schema';
 import produce from 'immer';
-import _ from 'lodash/fp';
-import { createGameDeck } from '../../utils';
-export const START_GAME = 'START_GAME';
+import * as types from './types';
+
 const initialState = {
   foundations: [[], [], [], []],
   cells: [[], [], [], []],
@@ -12,7 +11,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case START_GAME: {
+    case types.START_GAME: {
       const { gameDeck } = action.payload;
 
       const data = normalize({ deck: gameDeck }, schema);
@@ -32,13 +31,3 @@ export default (state = initialState, action) => {
     }
   }
 };
-
-export const startGame = (gameNumber) => {
-  const gameDeck = createGameDeck(gameNumber);
-  return {
-    type: START_GAME,
-    payload: { gameDeck },
-  };
-};
-
-const getCard = (state, id) => state.entities.cards[id];

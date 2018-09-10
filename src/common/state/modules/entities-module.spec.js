@@ -1,4 +1,4 @@
-import { startGame } from './game-module';
+import { startGame } from './game-module/actions/start-game';
 import entitiesReducer from './entities-module';
 
 describe('entities-module', () => {

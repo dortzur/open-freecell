@@ -1,4 +1,5 @@
-import gameReducer, { startGame } from './game-module';
+import gameReducer from './game-module';
+import { startGame } from './game-module/actions/start-game';
 
 describe('game-module', () => {
   it('creates game 100', () => {

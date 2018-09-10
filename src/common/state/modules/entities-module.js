@@ -1,7 +1,6 @@
-import { START_GAME } from './game-module';
+import { START_GAME } from './game-module/types';
 import { normalize } from 'normalizr';
 import schema from '../schema';
-import { createGameDeck } from '../../utils';
 export default (state = {}, action) => {
   switch (action.type) {
     case START_GAME: {
