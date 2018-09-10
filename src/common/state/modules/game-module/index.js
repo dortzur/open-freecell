@@ -2,6 +2,7 @@ import { normalize } from 'normalizr';
 import schema from '../../schema';
 import produce from 'immer';
 import * as types from './types';
+import { parseNotation } from '../../../utils/notation-parser';
 
 const initialState = {
   foundation: [[], [], [], []],
@@ -25,6 +26,11 @@ export default (state = initialState, action) => {
       );
 
       return { ...state };
+    }
+    case types.PERFORM_MOVE: {
+      const { notation } = action.payload;
+      const move = parseNotation(state, notation);
+      return { ...state, move };
     }
     default: {
       return state;

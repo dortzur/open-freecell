@@ -2,9 +2,13 @@ import gameReducer from './game-module';
 import { startGame } from './game-module/actions/start-game';
 
 describe('game-module', () => {
-  it('creates game 100', () => {
+  let state = null;
+  beforeEach(() => {
     const actionResult = startGame(100);
-    expect(actionResult).toMatchSnapshot();
-    expect(gameReducer(undefined, actionResult)).toMatchSnapshot();
+    state = gameReducer(undefined, actionResult);
+  });
+
+  it('should create game 100', () => {
+    expect(state).toMatchSnapshot();
   });
 });

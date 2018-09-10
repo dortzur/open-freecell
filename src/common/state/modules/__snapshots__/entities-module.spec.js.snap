@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`entities-module creates game 100 1`] = `
+exports[`entities-module should create game 100 1`] = `
 Object {
   "cards": Object {
     "2C": Object {
