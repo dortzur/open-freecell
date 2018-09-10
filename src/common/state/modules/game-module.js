@@ -2,14 +2,29 @@ import { srand } from '../../utils';
 import { deck } from '../../models/deck';
 import { normalize } from 'normalizr';
 import schema from '../schema';
-
+import produce from 'immer';
+import _ from 'lodash/fp';
 export const START_GAME = 'START_GAME';
+const initialState = {
+  foundations: [[], [], [], []],
+  cells: [[], [], [], []],
+  tableau: [[], [], [], [], [], [], [], []],
+};
 
-export default (state = {}, action) => {
+export default (state = initialState , action) => {
   switch (action.type) {
     case START_GAME: {
       const data = normalize({ deck: action.payload.gameDeck }, schema);
-      return { ...state, deck: data.result.deck };
+      const deck = data.result.deck;
+
+      state.tableau = produce(state.tableau, (tableau) =>
+        deck.reduce((tableau, card, index) => {
+          tableau[index % 8].push(card);
+          return tableau;
+        }, tableau)
+      );
+
+      return { ...state };
     }
     default: {
       return state;
