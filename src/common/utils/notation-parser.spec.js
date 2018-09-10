@@ -7,7 +7,7 @@ describe('notation-parser', () => {
     state = gameReducer(undefined, startGame(100));
   });
 
-  it('should parse move to home', function() {
+  it('should parse moves to home', function() {
     const result = parseNotation(state, '1h');
     expect(result.source.index).toEqual(0);
     expect(result.source).toMatchSnapshot();
@@ -18,13 +18,11 @@ describe('notation-parser', () => {
     expect(() => parseNotation(state, 'h1')).toThrow();
   });
 
-  it('should parse move to home', function() {
-    // const result = ;
-    // expect(result.source.index).toEqual(0);
-    // expect(result.source).toMatchSnapshot();
-    //
-    // expect(result.target.index).toEqual(null);
-    // expect(result.target.value).toBeArray();
-    // expect(result.target).toMatchSnapshot();
+  it('should parse moves between tableau cells', function() {
+    const result = parseNotation(state, '18');
+    expect(result.source.index).toEqual(0);
+    expect(result.source).toMatchSnapshot();
+    expect(result.target.index).toEqual(7);
+    expect(result.target).toMatchSnapshot();
   });
 });

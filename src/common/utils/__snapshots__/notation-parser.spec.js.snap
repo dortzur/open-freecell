@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`notation-parser should parse move to home 1`] = `
+exports[`notation-parser should parse moves between tableau cells 1`] = `
 Object {
   "index": 0,
   "notation": "1",
@@ -16,7 +16,38 @@ Object {
 }
 `;
 
-exports[`notation-parser should parse move to home 2`] = `
+exports[`notation-parser should parse moves between tableau cells 2`] = `
+Object {
+  "index": 7,
+  "notation": "8",
+  "value": Array [
+    "TD",
+    "AH",
+    "AS",
+    "7H",
+    "3H",
+    "2D",
+  ],
+}
+`;
+
+exports[`notation-parser should parse moves to home 1`] = `
+Object {
+  "index": 0,
+  "notation": "1",
+  "value": Array [
+    "AD",
+    "QH",
+    "QS",
+    "6S",
+    "3C",
+    "2C",
+    "8S",
+  ],
+}
+`;
+
+exports[`notation-parser should parse moves to home 2`] = `
 Object {
   "index": null,
   "notation": "h",
