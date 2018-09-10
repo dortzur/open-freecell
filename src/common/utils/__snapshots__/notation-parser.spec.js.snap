@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`notation-parser should parse move to home 1`] = `
+Object {
+  "index": 0,
+  "notation": "1",
+  "value": Array [
+    "AD",
+    "QH",
+    "QS",
+    "6S",
+    "3C",
+    "2C",
+    "8S",
+  ],
+}
+`;
+
+exports[`notation-parser should parse move to home 2`] = `
+Object {
+  "index": null,
+  "notation": "h",
+  "value": Array [
+    Array [],
+    Array [],
+    Array [],
+    Array [],
+  ],
+}
+`;

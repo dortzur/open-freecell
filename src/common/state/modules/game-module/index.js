@@ -4,7 +4,7 @@ import produce from 'immer';
 import * as types from './types';
 
 const initialState = {
-  foundations: [[], [], [], []],
+  foundation: [[], [], [], []],
   cells: [[], [], [], []],
   tableau: [[], [], [], [], [], [], [], []],
 };
