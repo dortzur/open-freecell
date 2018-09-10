@@ -1,13 +1,9 @@
+import gameReducer, { startGame } from './game-module';
 
-import gameReducer, {startGame} from './game-module';
-
-describe('legacy', () => {
+describe('game-module', () => {
   it('creates game 100', () => {
-
     const actionResult = startGame(100);
     expect(actionResult).toMatchSnapshot();
     expect(gameReducer(undefined, actionResult)).toMatchSnapshot();
-
-
   });
 });
