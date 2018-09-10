@@ -13,8 +13,8 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case START_GAME: {
-      const { gameNumber } = action.payload;
-      const gameDeck = createGameDeck(gameNumber);
+      const { gameDeck } = action.payload;
+
       const data = normalize({ deck: gameDeck }, schema);
       const deck = data.result.deck;
 
@@ -33,9 +33,12 @@ export default (state = initialState, action) => {
   }
 };
 
-export const startGame = (gameNumber) => ({
-  type: START_GAME,
-  payload: { gameNumber },
-});
+export const startGame = (gameNumber) => {
+  const gameDeck = createGameDeck(gameNumber);
+  return {
+    type: START_GAME,
+    payload: { gameDeck },
+  };
+};
 
 const getCard = (state, id) => state.entities.cards[id];

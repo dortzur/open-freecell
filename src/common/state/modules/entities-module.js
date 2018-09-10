@@ -5,7 +5,7 @@ import { createGameDeck } from '../../utils';
 export default (state = {}, action) => {
   switch (action.type) {
     case START_GAME: {
-      const gameDeck = createGameDeck(action.payload.gameNumber);
+      const { gameDeck } = action.payload;
       const data = normalize({ deck: gameDeck }, schema);
       return { ...state, cards: data.entities.cards };
     }
