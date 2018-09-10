@@ -1,6 +1,6 @@
 {
-  "name": "razzle-examples-with-redux",
-  "version": "0.8.14",
+  "name": "open-freecell",
+  "version": "0.3.0",
   "license": "MIT",
   "scripts": {
     "start": "razzle start",
@@ -20,7 +20,7 @@
     "ramda": "^0.25.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-playing-cards": "^0.2.0",
+    "react-playing-cards": "^0.4.0",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
