@@ -59,3 +59,27 @@ Object {
   ],
 }
 `;
+
+exports[`notation-parser should parse moves to open cell 1`] = `
+Object {
+  "index": 0,
+  "notation": "a",
+  "value": Array [],
+}
+`;
+
+exports[`notation-parser should parse moves to open cell 2`] = `
+Object {
+  "index": 0,
+  "notation": "1",
+  "value": Array [
+    "AD",
+    "QH",
+    "QS",
+    "6S",
+    "3C",
+    "2C",
+    "8S",
+  ],
+}
+`;

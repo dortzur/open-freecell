@@ -25,4 +25,16 @@ describe('notation-parser', () => {
     expect(result.target.index).toEqual(7);
     expect(result.target).toMatchSnapshot();
   });
+
+  it('should parse moves to open cell', function() {
+    const resultA = parseNotation(state, '1a');
+    expect(resultA.target.index).toEqual(0);
+    expect(resultA.target.index).toEqual(0);
+    expect(resultA.target).toMatchSnapshot();
+
+    const resultB = parseNotation(state, 'b1');
+    expect(resultB.source.index).toEqual(1);
+    expect(resultB.target.index).toEqual(0);
+    expect(resultB.target).toMatchSnapshot();
+  });
 });
