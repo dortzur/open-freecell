@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`game-module should create game 100 1`] = `
+Object {
+  "cell": Array [
+    Array [],
+    Array [],
+    Array [],
+    Array [],
+  ],
+  "foundation": Array [
+    Array [],
+    Array [],
+    Array [],
+    Array [],
+  ],
+  "tableau": Array [
+    Array [
+      "AD",
+      "QH",
+      "QS",
+      "6S",
+      "3C",
+      "2C",
+      "8S",
+    ],
+    Array [
+      "JS",
+      "TS",
+      "TH",
+      "5H",
+      "KS",
+      "2H",
+      "KC",
+    ],
+    Array [
+      "4S",
+      "5C",
+      "7S",
+      "6C",
+      "JC",
+      "KH",
+      "9S",
+    ],
+    Array [
+      "QC",
+      "9D",
+      "8H",
+      "3D",
+      "3S",
+      "8C",
+      "5S",
+    ],
+    Array [
+      "7C",
+      "4H",
+      "9C",
+      "4D",
+      "TC",
+      "7D",
+    ],
+    Array [
+      "6D",
+      "JD",
+      "6H",
+      "2S",
+      "4C",
+      "8D",
+    ],
+    Array [
+      "JH",
+      "KD",
+      "AC",
+      "9H",
+      "5D",
+      "QD",
+    ],
+    Array [
+      "TD",
+      "AH",
+      "AS",
+      "7H",
+      "3H",
+      "2D",
+    ],
+  ],
+}
+`;
