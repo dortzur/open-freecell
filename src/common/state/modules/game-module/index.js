@@ -11,18 +11,17 @@ const initialState = {
   tableau: [[], [], [], [], [], [], [], []],
 };
 
-export default (state = initialState, action) => {
+export default (state = { ...initialState }, action) => {
   switch (action.type) {
     case types.START_GAME: {
       const { gameDeck } = action.payload;
-
+      const deck = [...gameDeck];
       state.tableau = produce(state.tableau, (tableau) =>
-        gameDeck.reduce((tableau, card, index) => {
+        deck.reduce((tableau, card, index) => {
           tableau[index % 8].push(card);
           return tableau;
         }, tableau)
       );
-
       return { ...state };
     }
     case types.PERFORM_NOTATION_MOVE: {

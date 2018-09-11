@@ -22,6 +22,13 @@ describe('game-module', () => {
     state = gameReducer(undefined, startGame(106));
     state = gameReducer(state, performNotationMove('2h'));
     state = gameReducer(state, performNotationMove('8h'));
+
+    state = gameReducer(state, performNotationMove('7a'));
+    state = gameReducer(state, performNotationMove('7b'));
+    state = gameReducer(state, performNotationMove('7c'));
+    state = gameReducer(state, performNotationMove('7d'));
+
+    expect(state.tableau[0]).toHaveLength(7);
     expect(state.foundation[0][0].id).toEqual('AC');
     expect(state.foundation[1][0].id).toEqual('AH');
     expect(() => gameReducer(state, performNotationMove('2h'))).toThrow();
