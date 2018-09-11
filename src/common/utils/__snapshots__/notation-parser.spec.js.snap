@@ -4,6 +4,7 @@ exports[`notation-parser should parse moves between tableau cells 1`] = `
 Object {
   "index": 0,
   "notation": "1",
+  "type": "tableau",
   "value": Array [
     "AD",
     "QH",
@@ -20,6 +21,7 @@ exports[`notation-parser should parse moves between tableau cells 2`] = `
 Object {
   "index": 7,
   "notation": "8",
+  "type": "tableau",
   "value": Array [
     "TD",
     "AH",
@@ -35,6 +37,7 @@ exports[`notation-parser should parse moves to home 1`] = `
 Object {
   "index": 0,
   "notation": "1",
+  "type": "tableau",
   "value": Array [
     "AD",
     "QH",
@@ -51,6 +54,7 @@ exports[`notation-parser should parse moves to home 2`] = `
 Object {
   "index": null,
   "notation": "h",
+  "type": "foundation",
   "value": Array [
     Array [],
     Array [],
@@ -64,6 +68,7 @@ exports[`notation-parser should parse moves to open cell 1`] = `
 Object {
   "index": 0,
   "notation": "a",
+  "type": "cell",
   "value": Array [],
 }
 `;
@@ -72,6 +77,7 @@ exports[`notation-parser should parse moves to open cell 2`] = `
 Object {
   "index": 0,
   "notation": "1",
+  "type": "tableau",
   "value": Array [
     "AD",
     "QH",

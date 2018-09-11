@@ -1,3 +1,9 @@
+export const CELL_TYPES = {
+  CELL: 'cell',
+  FOUNDATION: 'foundation',
+  TABLEAU: 'tableau',
+};
+
 export const deck = [
   { suit: 'C', rank: 'A', value: 1, color: 'black', id: 'AC' },
   { suit: 'D', rank: 'A', value: 1, color: 'red', id: 'AD' },

@@ -2,7 +2,7 @@
 
 exports[`game-module should create game 100 1`] = `
 Object {
-  "cells": Array [
+  "cell": Array [
     Array [],
     Array [],
     Array [],
