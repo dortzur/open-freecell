@@ -34,8 +34,16 @@ const getSuitFoundation = (state, suit) =>
     return acc;
   }, null);
 const areSameColor = (cardA, cardB) => cardA.color === cardB.color;
-const areIncrementalValue = (sourceCard, foundationCard) =>
-  sourceCard.value - foundationCard.value === 1;
+const areDifferentColor = (cardA, cardB) => !areSameColor(cardA, cardB);
+
+const getValueDiff = (sourceCard, targetCard) =>
+  sourceCard.value - targetCard.value;
+
+const isIncrementalValueDiff = (sourceCard, targetCard) =>
+  getValueDiff(sourceCard, targetCard) === 1;
+
+const isDecrementalValueDiff = (sourceCard, targetCard) =>
+  getValueDiff(sourceCard, targetCard) === -1;
 
 const isFoundationStackable = (sourceCell, foundationCell) => {
   const sourceCard = getTopCard(sourceCell);
@@ -43,7 +51,7 @@ const isFoundationStackable = (sourceCell, foundationCell) => {
 
   return (
     areSameColor(sourceCard, foundationCard) &&
-    areIncrementalValue(sourceCard, foundationCard)
+    isIncrementalValueDiff(sourceCard, foundationCard)
   );
 };
 
@@ -65,6 +73,45 @@ const handleFoundation = (state, move) => {
     foundationCell.push(source.value.pop());
   }
 };
+const emptyCellCount = (state) =>
+  Object.entries(state)
+    .filter(([key, value]) => ['tableau', 'cell'].includes(key))
+    .reduce((acc, [key, value]) => (value.length === 0 ? ++acc : acc), 0);
+
+const movableCardsCount = (state) => 1 + emptyCellCount(state);
+const areTableauCardsStackable = (sourceCard, targetCard) =>
+  areDifferentColor(sourceCard, targetCard) &&
+  isDecrementalValueDiff(sourceCard, targetCard);
+const getStackableStack = (sourceCell, tableauCell) => {
+  sourceCell = [...sourceCell];
+  tableauCell = [...tableauCell];
+
+  const topTableauCard = getTopCard(tableauCell);
+  const topSourceCard = getTopCard(sourceCell);
+
+  invariant(
+    areTableauCardsStackable(topSourceCard, topTableauCard),
+    'illegal move'
+  );
+
+  const stack = [sourceCell.pop()];
+  const movableCardsCount = movableCardsCount(state);
+
+  let canStackMore = true;
+  while (
+    canStackMore &&
+    sourceCell.length > 0 &&
+    stack.length < movableCardsCount
+  ) {}
+
+  return stack;
+};
+
+const handleTableau = (state, move) => {
+  const stack = getStackableStack(move.source.value, move.target.source.value);
+
+};
+
 export const performMove = (state, move) => {
   switch (move.target.type) {
     case CELL_TYPES.CELL:
@@ -72,6 +119,9 @@ export const performMove = (state, move) => {
       break;
     case CELL_TYPES.FOUNDATION:
       handleFoundation(state, move);
+      break;
+    case CELL_TYPES.TABLEAU:
+      handleTableau(state, move);
       break;
   }
 
