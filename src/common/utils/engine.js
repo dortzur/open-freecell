@@ -82,7 +82,7 @@ const movableCardsCount = (state) => 1 + emptyCellCount(state);
 const areTableauCardsStackable = (sourceCard, targetCard) =>
   areDifferentColor(sourceCard, targetCard) &&
   isDecrementalValueDiff(sourceCard, targetCard);
-const getStackableStack = (sourceCell, tableauCell) => {
+const getMovableStack = (sourceCell, tableauCell) => {
   sourceCell = [...sourceCell];
   tableauCell = [...tableauCell];
 
@@ -108,7 +108,13 @@ const getStackableStack = (sourceCell, tableauCell) => {
 };
 
 const handleTableau = (state, move) => {
-  const stack = getStackableStack(move.source.value, move.target.source.value);
+  const movableStack = getMovableStack(move.source.value);
+
+  //if empty target empty, move entire stack
+  //else
+    // loop from the top of the stack until you find the first stackable card
+    // stack all cards from that point on
+
 
 };
 

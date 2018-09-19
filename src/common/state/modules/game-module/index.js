@@ -5,13 +5,13 @@ import * as types from './types';
 import { parseNotation } from '../../../utils/notation-parser';
 import { performMove } from '../../../utils/engine';
 
-const initialState = {
+const getInitialState = () => ({
   foundation: [[], [], [], []],
   cell: [[], [], [], []],
   tableau: [[], [], [], [], [], [], [], []],
-};
+});
 
-export default (state = { ...initialState }, action) => {
+export default (state = getInitialState(), action) => {
   switch (action.type) {
     case types.START_GAME: {
       const { gameDeck } = action.payload;

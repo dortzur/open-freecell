@@ -35,4 +35,8 @@ describe('game-module', () => {
     expect(() => gameReducer(state, performNotationMove('2h'))).toThrow();
     expect(() => gameReducer(state, performNotationMove('7h'))).toThrow();
   });
+
+  it('should perform legal tableau moves', () => {
+    print(state);
+  });
 });

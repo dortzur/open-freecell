@@ -9,6 +9,7 @@
     "start:prod": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
     "express": "^4.15.2",
     "fs-extra": "^5.0.0",
     "immer": "^1.2.1",
