@@ -55,5 +55,6 @@ describe('game-module', () => {
     expect(state.tableau[5][3].id).toEqual('2S');
     expect(state.tableau[0][7].id).toEqual('7H');
     expect(state.tableau[3][6].id).toEqual('5S');
+    print(state);
   });
 });

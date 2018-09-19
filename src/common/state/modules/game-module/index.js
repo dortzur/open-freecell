@@ -4,6 +4,7 @@ import produce from 'immer';
 import * as types from './types';
 import { parseNotation } from '../../../utils/notation-parser';
 import { performMove } from '../../../utils/engine';
+import { performAutoMoves } from '../../../utils/engine';
 
 const getInitialState = () => ({
   foundation: [[], [], [], []],
@@ -27,7 +28,7 @@ export default (state = getInitialState(), action) => {
     case types.PERFORM_NOTATION_MOVE: {
       const { notation } = action.payload;
       const move = parseNotation(state, notation);
-      return performMove(state, move);
+      return performAutoMoves(performMove(state, move));
     }
 
     default: {

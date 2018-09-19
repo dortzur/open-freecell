@@ -2,6 +2,14 @@ import produce from 'immer';
 import { CELL_TYPES } from './consts';
 import _ from 'lodash/fp';
 import { RANKS } from 'react-playing-cards';
+
+const performAutoMove = (state) => {
+  state.foundation.reduce((acc, cell) => {}, 100);
+};
+export const performAutoMoves = (state) => {
+  return state;
+};
+
 const invariant = require('invariant');
 
 const getTopCard = (resourceTarget) => {
@@ -79,6 +87,7 @@ const handleFoundation = (state, move) => {
     foundationCell.push(source.value.pop());
   }
 };
+
 const emptyCellCount = (state) =>
   Object.entries(state)
     .filter(([key]) => ['tableau', 'cell'].includes(key))
