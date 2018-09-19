@@ -37,6 +37,23 @@ describe('game-module', () => {
   });
 
   it('should perform legal tableau moves', () => {
-    print(state);
+    state = gameReducer(state, performNotationMove('63'));
+    state = gameReducer(state, performNotationMove('8a'));
+    state = gameReducer(state, performNotationMove('86'));
+    state = gameReducer(state, performNotationMove('72'));
+
+    expect(() => gameReducer(state, performNotationMove('63'))).toThrow();
+    state = gameReducer(state, performNotationMove('81'));
+
+    state = gameReducer(state, performNotationMove('1b'));
+    state = gameReducer(state, performNotationMove('2c'));
+    state = gameReducer(state, performNotationMove('2d'));
+    expect(() => gameReducer(state, performNotationMove('67'))).toThrow();
+    state = gameReducer(state, performNotationMove('b1'));
+    state = gameReducer(state, performNotationMove('67'));
+    expect(state.tableau[6][6].id).toEqual('3H');
+    expect(state.tableau[5][3].id).toEqual('2S');
+    expect(state.tableau[0][7].id).toEqual('7H');
+    expect(state.tableau[3][6].id).toEqual('5S');
   });
 });

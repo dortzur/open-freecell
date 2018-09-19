@@ -10,6 +10,12 @@ const getTopCard = (resourceTarget) => {
   }
   return resourceTarget[resourceTarget.length - 1];
 };
+const getBottomCard = (resourceTarget) => {
+  if (resourceTarget.value) {
+    return resourceTarget.value[0];
+  }
+  return resourceTarget[0];
+};
 
 const updateState = (state, move) =>
   produce(state, (draftState) => {
@@ -75,47 +81,67 @@ const handleFoundation = (state, move) => {
 };
 const emptyCellCount = (state) =>
   Object.entries(state)
-    .filter(([key, value]) => ['tableau', 'cell'].includes(key))
-    .reduce((acc, [key, value]) => (value.length === 0 ? ++acc : acc), 0);
+    .filter(([key]) => ['tableau', 'cell'].includes(key))
+    .reduce((acc, [key, value]) => {
+      acc += value.reduce((acc, cell) => (cell.length === 0 ? ++acc : acc), 0);
+      return acc;
+    }, 0);
 
-const movableCardsCount = (state) => 1 + emptyCellCount(state);
+const getMovableCardsCount = (state) => 1 + emptyCellCount(state);
 const areTableauCardsStackable = (sourceCard, targetCard) =>
   areDifferentColor(sourceCard, targetCard) &&
   isDecrementalValueDiff(sourceCard, targetCard);
-const getMovableStack = (sourceCell, tableauCell) => {
-  sourceCell = [...sourceCell];
-  tableauCell = [...tableauCell];
 
-  const topTableauCard = getTopCard(tableauCell);
-  const topSourceCard = getTopCard(sourceCell);
+const areTopCardsStackable = (sourceCell, targetCell) =>
+  areTableauCardsStackable(getTopCard(sourceCell), getTopCard(targetCell));
 
-  invariant(
-    areTableauCardsStackable(topSourceCard, topTableauCard),
-    'illegal move'
-  );
-
+const getMovableStack = (state, move) => {
+  const sourceCell = [...move.source.value];
   const stack = [sourceCell.pop()];
-  const movableCardsCount = movableCardsCount(state);
+  const movableCardsCount = getMovableCardsCount(state);
 
-  let canStackMore = true;
   while (
-    canStackMore &&
     sourceCell.length > 0 &&
+    areTopCardsStackable(stack, sourceCell) &&
     stack.length < movableCardsCount
-  ) {}
+  ) {
+    stack.unshift(sourceCell.pop());
+  }
 
   return stack;
 };
+const pushStack = (stack, targetTableauCell) => {
+  while (stack.length > 0) {
+    targetTableauCell.push(stack.shift());
+  }
+};
+
+const popStack = (cell, count) => {
+  for (let i = 0; i < count; i++) {
+    cell.pop();
+  }
+};
 
 const handleTableau = (state, move) => {
-  const movableStack = getMovableStack(move.source.value);
+  const movableStack = getMovableStack(state, move);
+  const { target, source } = move;
 
-  //if empty target empty, move entire stack
-  //else
-    // loop from the top of the stack until you find the first stackable card
-    // stack all cards from that point on
+  if (_.isEmpty(target.value)) {
+    pushStack(movableStack, target.value);
+  } else {
+    const targetTopCard = getTopCard(target);
+    while (
+      movableStack.length > 0 &&
+      !areTableauCardsStackable(getBottomCard(movableStack), targetTopCard)
+    ) {
+      movableStack.shift();
+    }
+    invariant(movableStack.length > 0, 'illegal move');
 
-
+    const stackLength = movableStack.length;
+    pushStack(movableStack, target.value);
+    popStack(source.value, stackLength);
+  }
 };
 
 export const performMove = (state, move) => {
