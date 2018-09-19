@@ -1,7 +1,7 @@
 import gameReducer from './game-module';
 import { startGame } from './game-module/actions/start-game';
 import { performNotationMove } from './game-module/actions/perform-notation-move';
-
+import { print } from '../../utils/print';
 describe('game-module', () => {
   let state = null;
   beforeEach(() => {
@@ -27,11 +27,12 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('7b'));
     state = gameReducer(state, performNotationMove('7c'));
     state = gameReducer(state, performNotationMove('7d'));
-
+    state = gameReducer(state, performNotationMove('7h'));
     expect(state.tableau[0]).toHaveLength(7);
     expect(state.foundation[0][0].id).toEqual('AC');
     expect(state.foundation[1][0].id).toEqual('AH');
+    expect(state.foundation[1][1].id).toEqual('2H');
     expect(() => gameReducer(state, performNotationMove('2h'))).toThrow();
-    //TODO add correct incremental test
+    expect(() => gameReducer(state, performNotationMove('7h'))).toThrow();
   });
 });

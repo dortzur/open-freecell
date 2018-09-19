@@ -29,6 +29,7 @@ export default (state = { ...initialState }, action) => {
       const move = parseNotation(state, notation);
       return performMove(state, move);
     }
+
     default: {
       return state;
     }
