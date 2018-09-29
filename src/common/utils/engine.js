@@ -2,14 +2,26 @@ import produce from 'immer';
 import { CELL_TYPES } from './consts';
 import _ from 'lodash/fp';
 import { RANKS } from 'react-playing-cards';
+import { parseNotation } from './notation-parser';
 
 const performAutoMove = (state) => {
-  state.foundation.reduce((acc, cell) => {}, 100);
+  let autoMove = state.tableau.reduce((move, cells) => {
+    if (move) return move;
+    return move;
+  }, null);
+
+  if (!autoMove) {
+    autoMove = state.cell.reduce((move, cells) => {
+      if (move) return move;
+      return move;
+    }, null);
+  }
+
+  return autoMove || state;
 };
 export const performAutoMoves = (state) => {
-  return state;
+  return performAutoMove(state);
 };
-
 const invariant = require('invariant');
 
 const getTopCard = (resourceTarget) => {
