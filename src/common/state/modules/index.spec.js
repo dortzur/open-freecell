@@ -20,9 +20,6 @@ describe('game-module', () => {
 
   it('should perform legal foundation moves', () => {
     state = gameReducer(undefined, startGame(106));
-    state = gameReducer(state, performNotationMove('2h'));
-    state = gameReducer(state, performNotationMove('8h'));
-
     state = gameReducer(state, performNotationMove('7a'));
     state = gameReducer(state, performNotationMove('7b'));
     state = gameReducer(state, performNotationMove('7c'));
@@ -63,7 +60,6 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('72'));
     state = gameReducer(state, performNotationMove('81'));
     // state = gameReducer(state, performNotationMove('81'));
-
 
     print(state);
   });

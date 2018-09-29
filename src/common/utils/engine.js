@@ -4,12 +4,18 @@ import _ from 'lodash/fp';
 import { RANKS } from 'react-playing-cards';
 import { parseNotation } from './notation-parser';
 
-const performAutoMove = (state) => {
-  let autoMove = state.tableau.reduce((move, cells) => {
+const getAutoMove = (state) => {
+  let autoMove = state.tableau.reduce((move, cell, index) => {
     if (move) return move;
+    const topCard = getTopCard(cell);
+    if (!topCard) return false;
+
+    if (topCard.rank === RANKS.ACE) {
+      move = parseNotation(state, `${index + 1}h`);
+    } else {
+    }
     return move;
   }, null);
-
   if (!autoMove) {
     autoMove = state.cell.reduce((move, cells) => {
       if (move) return move;
@@ -20,7 +26,12 @@ const performAutoMove = (state) => {
   return autoMove || state;
 };
 export const performAutoMoves = (state) => {
-  return performAutoMove(state);
+  let move = getAutoMove(state);
+  while (move !== state) {
+    state = performMove(state, move);
+    move = getAutoMove(state);
+  }
+  return state;
 };
 const invariant = require('invariant');
 

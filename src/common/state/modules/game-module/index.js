@@ -15,6 +15,7 @@ const getInitialState = () => ({
 export default (state = getInitialState(), action) => {
   switch (action.type) {
     case types.START_GAME: {
+
       const { gameDeck } = action.payload;
       const deck = [...gameDeck];
       state.tableau = produce(state.tableau, (tableau) =>
@@ -23,7 +24,8 @@ export default (state = getInitialState(), action) => {
           return tableau;
         }, tableau)
       );
-      return { ...state };
+
+      return performAutoMoves({...state});
     }
     case types.PERFORM_NOTATION_MOVE: {
       const { notation } = action.payload;
