@@ -6,13 +6,21 @@ import { parseNotation } from './notation-parser';
 
 const getAutoMove = (state) => {
   let autoMove = state.tableau.reduce((move, cell, index) => {
-    if (move) return move;
+    if (move || _.isEmpty(cell)) return move;
     const topCard = getTopCard(cell);
-    if (!topCard) return false;
+    const foundationCell = getSuitFoundation(state, topCard.suit);
 
     if (topCard.rank === RANKS.ACE) {
       move = parseNotation(state, `${index + 1}h`);
-    } else {
+    } else if (
+      !_.isEmpty(foundationCell) &&
+      isFoundationStackable(cell, foundationCell)
+    ) {
+      if (topCard.rank === RANKS.TWO) {
+        move = parseNotation(state, `${index + 1}h`);
+      } else {
+        //perform stacking logic by opposite suit color
+      }
     }
     return move;
   }, null);

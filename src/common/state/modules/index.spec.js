@@ -24,7 +24,6 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('7b'));
     state = gameReducer(state, performNotationMove('7c'));
     state = gameReducer(state, performNotationMove('7d'));
-    state = gameReducer(state, performNotationMove('7h'));
     expect(state.tableau[0]).toHaveLength(7);
     expect(state.foundation[0][0].id).toEqual('AC');
     expect(state.foundation[1][0].id).toEqual('AH');
@@ -49,7 +48,7 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('b1'));
     state = gameReducer(state, performNotationMove('67'));
     expect(state.tableau[6][6].id).toEqual('3H');
-    expect(state.tableau[5][3].id).toEqual('2S');
+    expect(state.tableau[5][2].id).toEqual('6H');
     expect(state.tableau[0][7].id).toEqual('7H');
     expect(state.tableau[3][6].id).toEqual('5S');
   });
@@ -59,7 +58,8 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('86'));
     state = gameReducer(state, performNotationMove('72'));
     state = gameReducer(state, performNotationMove('81'));
-    // state = gameReducer(state, performNotationMove('81'));
+    state = gameReducer(state, performNotationMove('6b'));
+    state = gameReducer(state, performNotationMove('6c'));
 
     print(state);
   });
