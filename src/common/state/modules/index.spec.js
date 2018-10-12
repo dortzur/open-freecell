@@ -64,5 +64,40 @@ describe('game-module', () => {
     expect(state.foundation[1][0].id).toEqual('AH');
   });
 
+  it('should run full game 100', () => {
+    state = gameReducer(state, performNotationMove('72'));
+    state = gameReducer(state, performNotationMove('7a'));
+    state = gameReducer(state, performNotationMove('17'));
+    state = gameReducer(state, performNotationMove('57'));
+    print(state);
+    // state = gameReducer(state, performNotationMove('75'));
 
+    // state = gameReducer(state, performNotationMove('1h'));
+    // state = gameReducer(state, performNotationMove('15'));
+    // state = gameReducer(state, performNotationMove('17'));
+    // state = gameReducer(state, performNotationMove('1b'));
+    // state = gameReducer(state, performNotationMove('71'));
+    // state = gameReducer(state, performNotationMove('71'));
+    // state = gameReducer(state, performNotationMove('51'));
+    // state = gameReducer(state, performNotationMove('8c'));
+    // state = gameReducer(state, performNotationMove('27'));
+    // state = gameReducer(state, performNotationMove('8d'));
+    // state = gameReducer(state, performNotationMove('63'));
+    // state = gameReducer(state, performNotationMove('6h'));
+    // state = gameReducer(state, performNotationMove('46'));
+    // state = gameReducer(state, performNotationMove('4c'));
+    // state = gameReducer(state, performNotationMove('58'));
+    // state = gameReducer(state, performNotationMove('48'));
+    // state = gameReducer(state, performNotationMove('58'));
+    // state = gameReducer(state, performNotationMove('68'));
+    // state = gameReducer(state, performNotationMove('c4'));
+    // state = gameReducer(state, performNotationMove('d4'));
+    // state = gameReducer(state, performNotationMove('35'));
+    // state = gameReducer(state, performNotationMove('3c'));
+    // state = gameReducer(state, performNotationMove('37'));
+    // state = gameReducer(state, performNotationMove('34'));
+    // state = gameReducer(state, performNotationMove('3d'));
+    // state = gameReducer(state, performNotationMove('63'));
+    // state = gameReducer(state, performNotationMove('2a'));
+  });
 });
