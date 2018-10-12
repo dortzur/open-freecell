@@ -2,6 +2,7 @@ import gameReducer from './game-module';
 import { startGame } from './game-module/actions/start-game';
 import { performNotationMove } from './game-module/actions/perform-notation-move';
 import { print } from '../../utils/print';
+import { getCardsCount, isCardsCountValid } from '../../test/helpers';
 describe('game-module', () => {
   let state = null;
   beforeEach(() => {
@@ -13,9 +14,12 @@ describe('game-module', () => {
     expect(state.tableau[0]).toHaveLength(6);
     expect(state.cell[0]).toHaveLength(1);
 
+    expect(isCardsCountValid(state)).toBeTrue();
     state = expect(() =>
       gameReducer(state, performNotationMove('1a'))
     ).toThrow();
+
+
   });
 
   it('should perform legal foundation moves', () => {
@@ -30,6 +34,8 @@ describe('game-module', () => {
     expect(state.foundation[1][1].id).toEqual('2H');
     expect(() => gameReducer(state, performNotationMove('2h'))).toThrow();
     expect(() => gameReducer(state, performNotationMove('7h'))).toThrow();
+
+    expect(isCardsCountValid(state)).toBeTrue();
   });
 
   it('should perform legal tableau moves', () => {
@@ -51,6 +57,7 @@ describe('game-module', () => {
     expect(state.tableau[5][2].id).toEqual('6H');
     expect(state.tableau[0][7].id).toEqual('7H');
     expect(state.tableau[3][6].id).toEqual('5S');
+    expect(isCardsCountValid(state)).toBeTrue();
   });
   it('should perform auto moves', () => {
     state = gameReducer(state, performNotationMove('63'));
@@ -62,6 +69,7 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('6c'));
     expect(state.foundation[0][1].id).toEqual('2S');
     expect(state.foundation[1][0].id).toEqual('AH');
+    expect(isCardsCountValid(state)).toBeTrue();
   });
 
   it('should run full game 100', () => {
@@ -70,11 +78,11 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('17'));
     state = gameReducer(state, performNotationMove('57'));
     state = gameReducer(state, performNotationMove('75'));
-    // print(state);
-    // state = gameReducer(state, performNotationMove('1h'));
-    // state = gameReducer(state, performNotationMove('15'));
-    // state = gameReducer(state, performNotationMove('17'));
-    // state = gameReducer(state, performNotationMove('1b'));
+    state = gameReducer(state, performNotationMove('1h'));
+    state = gameReducer(state, performNotationMove('15'));
+    state = gameReducer(state, performNotationMove('17'));
+    state = gameReducer(state, performNotationMove('1b'));
+
     // state = gameReducer(state, performNotationMove('71'));
     // state = gameReducer(state, performNotationMove('71'));
     // state = gameReducer(state, performNotationMove('51'));
@@ -98,5 +106,8 @@ describe('game-module', () => {
     // state = gameReducer(state, performNotationMove('3d'));
     // state = gameReducer(state, performNotationMove('63'));
     // state = gameReducer(state, performNotationMove('2a'));
+
+    expect(isCardsCountValid(state)).toBeTrue();
+    print(state);
   });
 });
