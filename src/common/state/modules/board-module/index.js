@@ -25,7 +25,7 @@ export default (state = getInitialState(), action) => {
         }, tableau)
       );
 
-      return performAutoMoves({...state});
+      return {...state};
     }
     case types.PERFORM_NOTATION_MOVE: {
       const { notation } = action.payload;
