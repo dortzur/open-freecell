@@ -2,7 +2,7 @@ import gameReducer from './game-module';
 import { startGame } from './game-module/actions/start-game';
 import { performNotationMove } from './game-module/actions/perform-notation-move';
 import { print } from '../../utils/print';
-import { isCardsCountValid } from '../../test/helpers';
+import { isCardsCountValid, isGameFinished } from '../../test/helpers';
 describe('game-module', () => {
   let state = null;
   beforeEach(() => {
@@ -80,7 +80,6 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('15'));
     state = gameReducer(state, performNotationMove('17'));
     state = gameReducer(state, performNotationMove('1b'));
-
     state = gameReducer(state, performNotationMove('71'));
     state = gameReducer(state, performNotationMove('71'));
     state = gameReducer(state, performNotationMove('51'));
@@ -90,23 +89,24 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('63'));
     state = gameReducer(state, performNotationMove('6h'));
     expect(state.cell[2]).toBeEmpty();
-    // state = gameReducer(state, performNotationMove('46'));
-    // state = gameReducer(state, performNotationMove('4c'));
-    // state = gameReducer(state, performNotationMove('58'));
-    // state = gameReducer(state, performNotationMove('48'));
-    // state = gameReducer(state, performNotationMove('58'));
-    // state = gameReducer(state, performNotationMove('68'));
-    // state = gameReducer(state, performNotationMove('c4'));
-    // state = gameReducer(state, performNotationMove('d4'));
-    // state = gameReducer(state, performNotationMove('35'));
-    // state = gameReducer(state, performNotationMove('3c'));
-    // state = gameReducer(state, performNotationMove('37'));
-    // state = gameReducer(state, performNotationMove('34'));
-    // state = gameReducer(state, performNotationMove('3d'));
-    // state = gameReducer(state, performNotationMove('63'));
-    // state = gameReducer(state, performNotationMove('2a'));
+    state = gameReducer(state, performNotationMove('46'));
+    state = gameReducer(state, performNotationMove('4c'));
+    state = gameReducer(state, performNotationMove('58'));
+    state = gameReducer(state, performNotationMove('48'));
+    state = gameReducer(state, performNotationMove('58'));
+    state = gameReducer(state, performNotationMove('68'));
+    state = gameReducer(state, performNotationMove('c4'));
+    state = gameReducer(state, performNotationMove('d4'));
+    state = gameReducer(state, performNotationMove('35'));
+    state = gameReducer(state, performNotationMove('3c'));
+    state = gameReducer(state, performNotationMove('37'));
+    state = gameReducer(state, performNotationMove('34'));
+    state = gameReducer(state, performNotationMove('3d'));
+    state = gameReducer(state, performNotationMove('63'));
+    state = gameReducer(state, performNotationMove('2a'));
 
-    print(state);
+    expect(isGameFinished(state)).toBeTrue();
+
     expect(isCardsCountValid(state)).toBeTrue();
   });
 });
