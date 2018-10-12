@@ -61,3 +61,9 @@ export const deck = [
   { suit: 'H', rank: 'K', value: 13, color: 'red', id: 'KH' },
   { suit: 'S', rank: 'K', value: 13, color: 'black', id: 'KS' },
 ];
+
+export const GAME_STATUS = {
+  NOT_STARTED: 'not-started',
+  STARTED: 'started',
+  FINISHED: 'finished',
+};
