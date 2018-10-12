@@ -60,7 +60,9 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('81'));
     state = gameReducer(state, performNotationMove('6b'));
     state = gameReducer(state, performNotationMove('6c'));
-
-    print(state);
+    expect(state.foundation[0][1].id).toEqual('2S');
+    expect(state.foundation[1][0].id).toEqual('AH');
   });
+
+
 });
