@@ -4,6 +4,7 @@ export const CELL_TYPES = {
   TABLEAU: 'tableau',
 };
 
+export const EMPTY_CELL_VALUE = 0;
 export const deck = [
   { suit: 'C', rank: 'A', value: 1, color: 'black', id: 'AC' },
   { suit: 'D', rank: 'A', value: 1, color: 'red', id: 'AD' },
