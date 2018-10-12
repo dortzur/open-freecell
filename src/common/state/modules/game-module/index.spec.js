@@ -1,8 +1,8 @@
-import gameReducer from './game-module';
-import { startGame } from './game-module/actions/start-game';
-import { performNotationMove } from './game-module/actions/perform-notation-move';
-import { print } from '../../utils/print';
-import { isCardsCountValid, isGameFinished } from '../../test/helpers';
+import gameReducer from './';
+import { startGame } from './actions/start-game';
+import { performNotationMove } from './actions/perform-notation-move';
+import { print } from '../../../utils/print';
+import { isCardsCountValid, isGameFinished } from '../../../test/helpers';
 describe('game-module', () => {
   let state = null;
   beforeEach(() => {
