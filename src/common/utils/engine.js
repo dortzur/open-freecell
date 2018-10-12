@@ -14,34 +14,29 @@ const getMinFoundationValue = (state) =>
 
 const shouldCellAutoMove = (state, cell) => {
   if (_.isEmpty(cell)) return false;
+
+  const topCard = getTopCard(cell);
+  if (topCard.rank === RANKS.ACE) return true;
+
+  const foundationCell = getSuitFoundation(state, topCard.suit);
+  const minValue = getMinFoundationValue(state);
+  if (
+    !_.isEmpty(foundationCell) &&
+    isFoundationStackable(cell, foundationCell) &&
+    topCard.value - minValue <= 2
+  ) {
+    return true;
+  }
 };
 
 const getAutoMove = (state) => {
-  let autoMove = state.tableau.reduce((move, cell, index) => {
-    if (move || _.isEmpty(cell)) return move;
-    const topCard = getTopCard(cell);
-    const foundationCell = getSuitFoundation(state, topCard.suit);
-
-    if (topCard.rank === RANKS.ACE) {
-      move = parseNotation(state, `${index + 1}h`);
-    } else if (
-      !_.isEmpty(foundationCell) &&
-      isFoundationStackable(cell, foundationCell)
-    ) {
-      const minValue = getMinFoundationValue(state);
-      if (topCard.value - minValue <= 2) {
-        move = parseNotation(state, `${index + 1}h`);
-      }
-    }
-    return move;
-  }, null);
-  if (!autoMove) {
-    autoMove = state.cell.reduce((move, cells) => {
-      if (move) return move;
-      return move;
-    }, null);
-  }
-
+  let autoMove = state.tableau.reduce(
+    (move, cell, index) =>
+      !move && shouldCellAutoMove(state, cell)
+        ? parseNotation(state, `${index + 1}h`)
+        : move,
+    null
+  );
   return autoMove || state;
 };
 export const performAutoMoves = (state) => {
