@@ -138,22 +138,20 @@ const areTableauCardsStackable = (sourceCard, targetCard) =>
   areDifferentColor(sourceCard, targetCard) &&
   isDecrementalValueDiff(sourceCard, targetCard);
 
-const areTopCardsStackable = (sourceCell, targetCell) =>
-  areTableauCardsStackable(getTopCard(sourceCell), getTopCard(targetCell));
+const areCellsStackable = (sourceCell, targetCell) =>
+  areTableauCardsStackable(getBottomCard(sourceCell), getTopCard(targetCell));
 
 const getMovableStack = (state, move) => {
   const sourceCell = [...move.source.value];
   const stack = [sourceCell.pop()];
   const movableCardsCount = getMovableCardsCount(state);
-
   while (
     sourceCell.length > 0 &&
-    areTopCardsStackable(stack, sourceCell) &&
+    areCellsStackable(stack, sourceCell) &&
     stack.length < movableCardsCount
   ) {
     stack.unshift(sourceCell.pop());
   }
-
   return stack;
 };
 const pushStack = (stack, targetTableauCell) => {

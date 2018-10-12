@@ -69,9 +69,8 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('7a'));
     state = gameReducer(state, performNotationMove('17'));
     state = gameReducer(state, performNotationMove('57'));
-    print(state);
-    // state = gameReducer(state, performNotationMove('75'));
-
+    state = gameReducer(state, performNotationMove('75'));
+    // print(state);
     // state = gameReducer(state, performNotationMove('1h'));
     // state = gameReducer(state, performNotationMove('15'));
     // state = gameReducer(state, performNotationMove('17'));
