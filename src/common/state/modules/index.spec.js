@@ -2,7 +2,7 @@ import gameReducer from './game-module';
 import { startGame } from './game-module/actions/start-game';
 import { performNotationMove } from './game-module/actions/perform-notation-move';
 import { print } from '../../utils/print';
-import { getCardsCount, isCardsCountValid } from '../../test/helpers';
+import { isCardsCountValid } from '../../test/helpers';
 describe('game-module', () => {
   let state = null;
   beforeEach(() => {
@@ -18,8 +18,6 @@ describe('game-module', () => {
     state = expect(() =>
       gameReducer(state, performNotationMove('1a'))
     ).toThrow();
-
-
   });
 
   it('should perform legal foundation moves', () => {
@@ -86,11 +84,12 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('71'));
     state = gameReducer(state, performNotationMove('71'));
     state = gameReducer(state, performNotationMove('51'));
-    // state = gameReducer(state, performNotationMove('8c'));
-    // state = gameReducer(state, performNotationMove('27'));
-    // state = gameReducer(state, performNotationMove('8d'));
-    // state = gameReducer(state, performNotationMove('63'));
-    // state = gameReducer(state, performNotationMove('6h'));
+    state = gameReducer(state, performNotationMove('8c'));
+    state = gameReducer(state, performNotationMove('27'));
+    state = gameReducer(state, performNotationMove('8d'));
+    state = gameReducer(state, performNotationMove('63'));
+    state = gameReducer(state, performNotationMove('6h'));
+    expect(state.cell[2]).toBeEmpty();
     // state = gameReducer(state, performNotationMove('46'));
     // state = gameReducer(state, performNotationMove('4c'));
     // state = gameReducer(state, performNotationMove('58'));
@@ -109,6 +108,5 @@ describe('game-module', () => {
 
     print(state);
     expect(isCardsCountValid(state)).toBeTrue();
-
   });
 });

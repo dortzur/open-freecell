@@ -1,16 +1,19 @@
 import produce from 'immer';
-import { CELL_TYPES, EMPTY_CELL_VALUE } from './consts';
+import { CELL_TYPES, EMPTY_CELL_VALUE, KING_VALUE } from './consts';
 import _ from 'lodash/fp';
 import { RANKS } from 'react-playing-cards';
-import { parseNotation } from './notation-parser';
+import {
+  CELL_NOTATION,
+  parseNotation,
+  TABLEAU_NOTATION,
+} from './notation-parser';
 
 const getMinFoundationValue = (state) =>
   state.foundation.reduce((lowestValue, cell) => {
     if (_.isEmpty(cell)) return EMPTY_CELL_VALUE;
-
     const card = getTopCard(cell);
     return card.value < lowestValue ? card.value : lowestValue;
-  }, EMPTY_CELL_VALUE);
+  }, KING_VALUE);
 
 const shouldCellAutoMove = (state, cell) => {
   if (_.isEmpty(cell)) return false;
@@ -20,6 +23,7 @@ const shouldCellAutoMove = (state, cell) => {
 
   const foundationCell = getSuitFoundation(state, topCard.suit);
   const minValue = getMinFoundationValue(state);
+
   if (
     !_.isEmpty(foundationCell) &&
     isFoundationStackable(cell, foundationCell) &&
@@ -33,10 +37,20 @@ const getAutoMove = (state) => {
   let autoMove = state.tableau.reduce(
     (move, cell, index) =>
       !move && shouldCellAutoMove(state, cell)
-        ? parseNotation(state, `${index + 1}h`)
+        ? parseNotation(state, `${TABLEAU_NOTATION[index]}h`)
         : move,
     null
   );
+
+  if (!autoMove) {
+    autoMove = state.cell.reduce(
+      (move, cell, index) =>
+        !move && shouldCellAutoMove(state, cell)
+          ? parseNotation(state, `${CELL_NOTATION[index]}h`)
+          : move,
+      null
+    );
+  }
   return autoMove || state;
 };
 export const performAutoMoves = (state) => {

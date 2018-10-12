@@ -1,9 +1,8 @@
 import { CELL_TYPES } from './consts';
-
 const invariant = require('invariant');
-const CELL_NOTATION = ['a', 'b', 'c', 'd'];
-const TABLEAU_NOTATION = ['1', '2', '3', '4', '5', '6', '7', '8'];
-const FOUNDATION_NOTATION = ['h'];
+export const CELL_NOTATION = ['a', 'b', 'c', 'd'];
+export const TABLEAU_NOTATION = ['1', '2', '3', '4', '5', '6', '7', '8'];
+export const FOUNDATION_NOTATION = ['h'];
 const getNotationStruct = (notation, index, type, value) => ({
   notation,
   index,

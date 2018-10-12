@@ -5,6 +5,8 @@ export const CELL_TYPES = {
 };
 
 export const EMPTY_CELL_VALUE = 0;
+export const KING_VALUE = 13;
+
 export const deck = [
   { suit: 'C', rank: 'A', value: 1, color: 'black', id: 'AC' },
   { suit: 'D', rank: 'A', value: 1, color: 'red', id: 'AD' },
