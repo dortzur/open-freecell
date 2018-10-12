@@ -6,7 +6,7 @@ import express from 'express';
 import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
-import { startGame } from '../common/state/modules/game-module';
+import { startGame } from '../common/state/modules/game-module/actions/start-game';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 

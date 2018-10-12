@@ -9,9 +9,9 @@ import { Footer } from './footer';
 export class App extends React.PureComponent {
   render() {
     return <div>
-      <Header/>
-      <Board/>
-      <Footer/>
+      {/*<Header/>*/}
+      {/*<Board/>*/}
+      {/*<Footer/>*/}
     </div>;
   }
 }
