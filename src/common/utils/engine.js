@@ -125,15 +125,12 @@ const handleFoundation = (state, move) => {
   }
 };
 
-const emptyCellCount = (state) =>
-  Object.entries(state)
-    .filter(([key]) => ['tableau', 'cell'].includes(key))
-    .reduce((acc, [key, value]) => {
-      acc += value.reduce((acc, cell) => (cell.length === 0 ? ++acc : acc), 0);
-      return acc;
-    }, 0);
+const getMovableCardsCount = (state) => {
+  const emptyCells = state.cell.filter(_.isEmpty).length;
+  const emptyTableau = state.tableau.filter(_.isEmpty).length;
 
-const getMovableCardsCount = (state) => 1 + emptyCellCount(state);
+  return (1 + emptyTableau) * (1 + emptyCells);
+};
 const areTableauCardsStackable = (sourceCard, targetCard) =>
   areDifferentColor(sourceCard, targetCard) &&
   isDecrementalValueDiff(sourceCard, targetCard);
