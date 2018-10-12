@@ -1,12 +1,12 @@
 import produce from 'immer';
-import { CELL_TYPES, EMPTY_CELL_VALUE, KING_VALUE } from './consts';
+import { CELL_TYPES, EMPTY_CELL_VALUE, KING_VALUE } from '../utils/consts';
 import _ from 'lodash/fp';
 import { RANKS } from 'react-playing-cards';
 import {
   CELL_NOTATION,
   parseNotation,
   TABLEAU_NOTATION,
-} from './notation-parser';
+} from '../utils/notation-parser';
 
 const getMinFoundationValue = (state) =>
   state.foundation.reduce((lowestValue, cell) => {

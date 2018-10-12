@@ -3,8 +3,8 @@ import schema from '../../schema';
 import produce from 'immer';
 import * as types from './types';
 import { parseNotation } from '../../../utils/notation-parser';
-import { performMove } from '../../../utils/engine';
-import { performAutoMoves } from '../../../utils/engine';
+import { performMove } from '../../../engine';
+import { performAutoMoves } from '../../../engine';
 
 const getInitialState = () => ({
   foundation: [[], [], [], []],
