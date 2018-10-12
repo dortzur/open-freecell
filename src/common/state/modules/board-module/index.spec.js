@@ -3,7 +3,7 @@ import { startGame } from './actions/start-game';
 import { performNotationMove } from './actions/perform-notation-move';
 import { print } from '../../../utils/print';
 import { isCardsCountValid, isGameFinished } from '../../../test/helpers';
-describe('game-module', () => {
+describe('board-module', () => {
   let state = null;
   beforeEach(() => {
     state = gameReducer(undefined, startGame(100));

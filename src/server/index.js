@@ -6,7 +6,7 @@ import express from 'express';
 import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
-import { startGame } from '../common/state/modules/game-module/actions/start-game';
+import { startGame } from '../common/state/modules/board-module/actions/start-game';
 import {
   MuiThemeProvider,
   createMuiTheme,

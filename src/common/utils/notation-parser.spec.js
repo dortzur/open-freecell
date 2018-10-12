@@ -1,6 +1,6 @@
 import { parseNotation } from './notation-parser';
-import { startGame } from '../state/modules/game-module/actions/start-game';
-import gameReducer from '../state/modules/game-module';
+import { startGame } from '../state/modules/board-module/actions/start-game';
+import gameReducer from '../state/modules/board-module';
 describe('notation-parser', () => {
   let state = null;
   beforeAll(() => {
