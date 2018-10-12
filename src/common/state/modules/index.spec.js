@@ -83,8 +83,8 @@ describe('game-module', () => {
     state = gameReducer(state, performNotationMove('17'));
     state = gameReducer(state, performNotationMove('1b'));
 
-    // state = gameReducer(state, performNotationMove('71'));
-    // state = gameReducer(state, performNotationMove('71'));
+    state = gameReducer(state, performNotationMove('71'));
+    state = gameReducer(state, performNotationMove('71'));
     // state = gameReducer(state, performNotationMove('51'));
     // state = gameReducer(state, performNotationMove('8c'));
     // state = gameReducer(state, performNotationMove('27'));
@@ -107,7 +107,8 @@ describe('game-module', () => {
     // state = gameReducer(state, performNotationMove('63'));
     // state = gameReducer(state, performNotationMove('2a'));
 
-    expect(isCardsCountValid(state)).toBeTrue();
     print(state);
+    expect(isCardsCountValid(state)).toBeTrue();
+
   });
 });

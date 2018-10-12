@@ -169,9 +169,11 @@ const popStack = (cell, count) => {
 const handleTableau = (state, move) => {
   const movableStack = getMovableStack(state, move);
   const { target, source } = move;
+  const stackLength = movableStack.length;
 
   if (_.isEmpty(target.value)) {
     pushStack(movableStack, target.value);
+    popStack(source.value, stackLength);
   } else {
     const targetTopCard = getTopCard(target);
     while (
@@ -182,7 +184,6 @@ const handleTableau = (state, move) => {
     }
     invariant(movableStack.length > 0, 'illegal move');
 
-    const stackLength = movableStack.length;
     pushStack(movableStack, target.value);
     popStack(source.value, stackLength);
   }
