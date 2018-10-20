@@ -8,9 +8,9 @@ import 'typeface-roboto';
 const store = configureStore(window.__PRELOADED_STATE__);
 
 hydrate(
-  <Providerª store={store}>
+  <Provider store={store}>
     <App />
-  </Providerª>,
+  </Provider>,
   document.getElementById('root')
 );
 
