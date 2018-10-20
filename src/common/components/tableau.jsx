@@ -3,14 +3,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import styled from 'styled-components';
+
+const TableauContainer = styled.div`
+  ${getCardsGrid(8)}
+`;
 import { Cell } from './cell';
+import { getCardsGrid } from '../styles';
 @connect()
-export class Table extends React.PureComponent {
+export class Tableau extends React.PureComponent {
   static propTypes = {};
   static defaultProps = {};
   render() {
     return (
-      <div>
+      <TableauContainer>
         <Cell />
         <Cell />
         <Cell />
@@ -19,7 +24,7 @@ export class Table extends React.PureComponent {
         <Cell />
         <Cell />
         <Cell />
-      </div>
+      </TableauContainer>
     );
   }
 }

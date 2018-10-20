@@ -6,13 +6,15 @@ import Header  from './header';
 import { Footer } from './footer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+
 export class App extends React.PureComponent {
   render() {
+
     return (
       <React.Fragment>
         <CssBaseline>
           <Header />
-          {/*<Board/>*/}
+          <Board/>
           {/*<Footer/>*/}
         </CssBaseline>
       </React.Fragment>

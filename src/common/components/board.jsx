@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { TopRow } from './top-row';
-import { Table } from './table';
+import { Tableau } from './tableau';
 import { RANKS, SUITS, Card } from 'react-playing-cards';
 
 
@@ -14,9 +14,8 @@ export class Board extends React.PureComponent {
   render() {
     return (
       <div>
-        <Card suit={SUITS.HEARTS} rank={RANKS.JACK} />
         <TopRow />
-        <Table />
+        <Tableau />
       </div>
     );
   }
