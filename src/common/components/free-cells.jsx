@@ -16,7 +16,7 @@ export class FreeCells extends React.PureComponent {
   render() {
     return (
       <FreeCellsContainer>
-        <Cell />
+        <Cell  />
         <Cell />
         <Cell />
         <Cell />

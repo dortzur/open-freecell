@@ -5,25 +5,20 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const TableauContainer = styled.div`
-  ${getCardsGrid(8)}
+  ${getCardsGrid(8)};
 `;
 import { Cell } from './cell';
 import { getCardsGrid } from '../styles';
-@connect()
+@connect((state) => ({ tableau: state.board.tableau }))
 export class Tableau extends React.PureComponent {
   static propTypes = {};
   static defaultProps = {};
   render() {
+    const { tableau } = this.props;
+
     return (
       <TableauContainer>
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
+        {tableau.map((stack, i) => <Cell key={i} stack={stack} />)}
       </TableauContainer>
     );
   }
