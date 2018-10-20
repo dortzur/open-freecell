@@ -10,6 +10,10 @@ const CellContainer = styled.div`
   height: ${modularScale(8)};
   width: ${modularScale(7)};
   border-radius: 8px;
+  display: grid;
+  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px;
+  justify-content: center;
+  align-content: center;
 `;
 
 @connect()
@@ -25,7 +29,7 @@ export class Cell extends React.PureComponent {
     return (
       <CellContainer>
         {this.props.stack.map((card) => (
-          <Card  rank={card.rank} suit={card.suit} key={card.id} />
+          <Card size={4} rank={card.rank} suit={card.suit} key={card.id} />
         ))}
       </CellContainer>
     );
