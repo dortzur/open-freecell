@@ -8064,9 +8064,9 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react-playing-cards@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/react-playing-cards/-/react-playing-cards-0.4.0.tgz#4cf56b9c4fc4602b1bf2f2fc01b2e0af2f7090ba"
+react-playing-cards@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-playing-cards/-/react-playing-cards-0.5.0.tgz#28f918a13db7a4abe9ad72964c4a87b0fecccae2"
   dependencies:
     classnames "^2.2.5"
     file-loader "^1.1.11"
