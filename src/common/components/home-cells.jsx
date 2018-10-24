@@ -9,17 +9,16 @@ const HomeCellsContainer = styled.div`
 `;
 import { Cell } from './cell';
 import { getCardsGrid } from '../styles';
-@connect()
+@connect((state) => ({ foundation: state.board.foundation }))
 export class HomeCells extends React.PureComponent {
   static propTypes = {};
   static defaultProps = {};
   render() {
+    const { foundation } = this.props;
+
     return (
       <HomeCellsContainer>
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
+        {foundation.map((stack, i) => <Cell key={i} stack={stack} />)}
       </HomeCellsContainer>
     );
   }

@@ -9,17 +9,15 @@ const FreeCellsContainer = styled.div`
 `;
 import { Cell } from './cell';
 import { getCardsGrid } from '../styles';
-@connect()
+@connect((state) => ({ cells: state.board.cell }))
 export class FreeCells extends React.PureComponent {
   static propTypes = {};
   static defaultProps = {};
   render() {
+    const { cells } = this.props;
     return (
       <FreeCellsContainer>
-        <Cell  />
-        <Cell />
-        <Cell />
-        <Cell />
+        {cells.map((stack, i) => <Cell key={i} stack={stack} />)}
       </FreeCellsContainer>
     );
   }
