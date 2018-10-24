@@ -25,7 +25,7 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-jss": "^8.6.1",
-    "react-playing-cards": "^0.5.1",
+    "react-playing-cards": "^0.5.3",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",

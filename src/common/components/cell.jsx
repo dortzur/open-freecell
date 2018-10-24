@@ -11,11 +11,14 @@ const CellContainer = styled.div`
   width: ${modularScale(7)};
   border-radius: 8px;
   display: grid;
-  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px;
+  grid-template-rows: repeat(${(p) => p.cardsCount + 1}, 30px);
   justify-content: center;
-  align-content: center;
+  align-content: start;
 `;
 
+const CardContainer = styled(Card)`
+  margin-top: -100px;
+`;
 @connect()
 export class Cell extends React.PureComponent {
   static propTypes = {
@@ -26,10 +29,11 @@ export class Cell extends React.PureComponent {
   };
 
   render() {
+    const { stack } = this.props;
     return (
-      <CellContainer>
+      <CellContainer cardsCount={stack.length}>
         {this.props.stack.map((card) => (
-          <Card size={4} rank={card.rank} suit={card.suit} key={card.id} />
+          <CardContainer size={4} rank={card.rank} suit={card.suit} key={card.id} />
         ))}
       </CellContainer>
     );
