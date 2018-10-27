@@ -33,7 +33,9 @@ server
     const store = configureStore(preloadedState);
     store.dispatch(startGame(100));
 
-    const theme = createMuiTheme({});
+    const theme = createMuiTheme({
+          useNextVariants: true,
+    });
     const sheetsManager = new Map();
     const generateClassName = createGenerateClassName();
     const sheetsRegistry = new SheetsRegistry();
