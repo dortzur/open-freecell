@@ -9,8 +9,15 @@ const getInitialState = () => ({
   cell: [[], [], [], []],
   tableau: [[], [], [], [], [], [], [], []],
 });
-
-export default (state = getInitialState(), action) => {
+type Payload = {
+  gameDeck: Array<any>
+  notation: string
+}
+type Action = {
+  type: String,
+  payload: Payload
+}
+export default (state = getInitialState(), action: Action) => {
   switch (action.type) {
     case types.START_GAME: {
 
