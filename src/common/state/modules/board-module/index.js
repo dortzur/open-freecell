@@ -1,5 +1,3 @@
-import { normalize } from 'normalizr';
-import schema from '../../schema';
 import produce from 'immer';
 import * as types from './types';
 import { parseNotation } from '../../../utils/notation-parser';
@@ -22,10 +20,10 @@ export default (state = getInitialState(), action) => {
         deck.reduce((tableau, card, index) => {
           tableau[index % 8].push(card);
           return tableau;
-        }, tableau)
+        }, tableau),
       );
 
-      return {...state};
+      return { ...state };
     }
     case types.PERFORM_NOTATION_MOVE: {
       const { notation } = action.payload;

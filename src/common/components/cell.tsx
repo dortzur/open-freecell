@@ -4,8 +4,18 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { modularScale } from 'polished';
-import { RANKS, SUITS, Card } from 'react-playing-cards';
-const CellContainer = styled.div`
+import { Card } from 'react-playing-cards';
+
+export interface ContainerProps {
+  cardsCount: number
+}
+
+export interface Props {
+  stack: Array<any>
+}
+
+
+const CellContainer = styled.div<ContainerProps>`
   border: 5px solid;
   height: ${modularScale(8)};
   width: ${modularScale(7)};
@@ -16,17 +26,17 @@ const CellContainer = styled.div`
   align-content: start;
 `;
 
+
 const CardContainer = styled(Card)`
   &&{
     margin-top: -100px;
   }
   
 `;
+
+//@ts-ignore
 @connect()
-export class Cell extends React.PureComponent {
-  static propTypes = {
-    stack: PropTypes.array,
-  };
+export class Cell extends React.PureComponent<Props> {
   static defaultProps = {
     stack: [],
   };
@@ -36,7 +46,7 @@ export class Cell extends React.PureComponent {
     return (
       <CellContainer cardsCount={stack.length}>
         {this.props.stack.map((card) => (
-          <CardContainer size={4} rank={card.rank} suit={card.suit} key={card.id} />
+          <CardContainer size={4} rank={card.rank} suit={card.suit} key={card.id}/>
         ))}
       </CellContainer>
     );

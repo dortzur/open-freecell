@@ -4,7 +4,7 @@ module.exports = {
       name: 'typescript',
       options: {
         useBabel: true,
-        // useEslint: true, // ignored if `useBabel` is false
+        useEslint: false, // ignored if `useBabel` is false
         tsLoader: {
           transpileOnly: true,
           experimentalWatchApi: true,

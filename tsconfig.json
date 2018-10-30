@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
