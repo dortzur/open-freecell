@@ -3,11 +3,12 @@ import thunk from 'redux-thunk';
 import rootReducer from '../modules/index';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const configureStore = (preloadedState) => {
+
+const configureStore = (preloadedState: Object) => {
   const store = createStore(
     rootReducer,
     preloadedState,
-    composeWithDevTools(applyMiddleware(thunk))
+    composeWithDevTools(applyMiddleware(thunk)),
   );
 
   if (module.hot) {
