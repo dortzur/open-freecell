@@ -17,7 +17,10 @@ const CellContainer = styled.div`
 `;
 
 const CardContainer = styled(Card)`
-  margin-top: -100px;
+  &&{
+    margin-top: -100px;
+  }
+  
 `;
 @connect()
 export class Cell extends React.PureComponent {

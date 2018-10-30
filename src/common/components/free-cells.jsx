@@ -8,7 +8,7 @@ const FreeCellsContainer = styled.div`
   ${getCardsGrid(4)};
 `;
 import { Cell } from './cell';
-import { getCardsGrid } from '../styles';
+import { getCardsGrid } from '../styles/index';
 @connect((state) => ({ cells: state.board.cell }))
 export class FreeCells extends React.PureComponent {
   static propTypes = {};

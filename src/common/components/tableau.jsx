@@ -8,7 +8,7 @@ const TableauContainer = styled.div`
   ${getCardsGrid(8)};
 `;
 import { Cell } from './cell';
-import { getCardsGrid } from '../styles';
+import { getCardsGrid } from '../styles/index';
 @connect((state) => ({ tableau: state.board.tableau }))
 export class Tableau extends React.PureComponent {
   static propTypes = {};
