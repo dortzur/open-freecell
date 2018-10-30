@@ -1,5 +1,5 @@
 import express from 'express';
-import app from './server';
+import app from './server/index';
 
 if (module.hot) {
   module.hot.accept('./server', function() {

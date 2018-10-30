@@ -22,6 +22,7 @@
     "prop-types": "^15.6.2",
     "qs": "^6.5.2",
     "ramda": "^0.25.0",
+    "razzle-plugin-typescript": "^2.4.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-jss": "^8.6.1",
@@ -35,7 +36,9 @@
     "reselect": "^4.0.0",
     "serialize-javascript": "^1.5.0",
     "styled-components": "^4.0.2",
-    "typeface-roboto": "^0.0.54"
+    "tslint": "^5.11.0",
+    "typeface-roboto": "^0.0.54",
+    "typescript": "^3.1.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -50,7 +53,7 @@
     "jest-styled-components": "^6.2.2",
     "razzle": "^2.4.0"
   },
-  "resolutions":{
-    "upath":"^1.1.0"
+  "resolutions": {
+    "upath": "^1.1.0"
   }
 }
