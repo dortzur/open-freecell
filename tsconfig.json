@@ -9,7 +9,7 @@
     "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "React",
+    "jsx": "react",
     "lib": [
       "es6",
       "es2015",
