@@ -1,16 +1,23 @@
 import { CELL_TYPES } from './consts';
+
 const invariant = require('invariant');
 export const CELL_NOTATION = ['a', 'b', 'c', 'd'];
 export const TABLEAU_NOTATION = ['1', '2', '3', '4', '5', '6', '7', '8'];
 export const FOUNDATION_NOTATION = ['h'];
-const getNotationStruct = (notation, index, type, value) => ({
+const getNotationStruct = (notation: string, index: number | null, type: CELL_TYPES, value: any[]) => ({
   notation,
   index,
   value,
   type,
 });
 
-const parseNotationLetter = (state, notationLetter) => {
+interface State {
+  cell: any[],
+  tableau: any[],
+  foundation: any[]
+}
+
+const parseNotationLetter = (state: State, notationLetter: string) => {
   if (CELL_NOTATION.includes(notationLetter)) {
     const index = CELL_NOTATION.indexOf(notationLetter);
     return getNotationStruct(notationLetter, index, CELL_TYPES.CELL, [
@@ -29,7 +36,7 @@ const parseNotationLetter = (state, notationLetter) => {
   }
   throw new Error('invalid notation');
 };
-export const parseNotation = (state, notation) => {
+export const parseNotation = (state: State, notation: string) => {
   const source = parseNotationLetter(state, notation[0]);
   const target = parseNotationLetter(state, notation[1]);
   invariant(source.type !== CELL_TYPES.FOUNDATION, 'invalid notation');

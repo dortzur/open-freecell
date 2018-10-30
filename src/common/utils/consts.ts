@@ -1,8 +1,8 @@
-export const CELL_TYPES = {
-  CELL: 'cell',
-  FOUNDATION: 'foundation',
-  TABLEAU: 'tableau',
-};
+export enum CELL_TYPES {
+  CELL = 'cell',
+  FOUNDATION = 'foundation',
+  TABLEAU = 'tableau',
+}
 
 export const EMPTY_CELL_VALUE = 0;
 export const KING_VALUE = 13;
@@ -62,8 +62,8 @@ export const deck = [
   { suit: 'S', rank: 'K', value: 13, color: 'black', id: 'KS' },
 ];
 
-export const GAME_STATUS = {
-  NOT_STARTED: 'not-started',
-  STARTED: 'started',
-  FINISHED: 'finished',
-};
+export enum GAME_STATUS {
+  NOT_STARTED = 'not-started',
+  STARTED = 'started',
+  FINISHED = 'finished',
+}
