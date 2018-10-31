@@ -3,21 +3,22 @@ import * as types from './types';
 import { parseNotation } from '../../../utils/notation-parser';
 import { performMove } from '../../../engine';
 import { performAutoMoves } from '../../../engine';
+import { Cell } from '../../../utils/consts';
+import { AnyAction } from 'redux';
 
-const getInitialState = () => ({
+export interface BoardState {
+  foundation: Array<Cell>
+  cell: Array<Cell>,
+  tableau: Array<Cell>
+}
+
+const getInitialState = (): BoardState => ({
   foundation: [[], [], [], []],
   cell: [[], [], [], []],
   tableau: [[], [], [], [], [], [], [], []],
 });
-type Payload = {
-  gameDeck: Array<any>
-  notation: string
-}
-type Action = {
-  type: String,
-  payload: Payload
-}
-export default (state = getInitialState(), action: Action) => {
+
+export default (state = getInitialState(), action: AnyAction) => {
   switch (action.type) {
     case types.START_GAME: {
 

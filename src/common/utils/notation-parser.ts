@@ -1,4 +1,5 @@
 import { Cell, CELL_TYPES } from './consts';
+import { BoardState } from '../state/modules/board-module';
 
 const invariant = require('invariant');
 export const CELL_NOTATION = ['a', 'b', 'c', 'd'];
@@ -19,18 +20,13 @@ const getNotationStruct = (notation: string, index: number | null, type: CELL_TY
   type,
 });
 
-interface State {
-  cell: any[],
-  tableau: any[],
-  foundation: any[]
-}
 
 export interface Move {
   source: NotationStruct,
   target: NotationStruct
 }
 
-const parseNotationLetter = (state: State, notationLetter: string): NotationStruct => {
+const parseNotationLetter = (state: BoardState, notationLetter: string): NotationStruct => {
   if (CELL_NOTATION.includes(notationLetter)) {
     const index = CELL_NOTATION.indexOf(notationLetter);
     return getNotationStruct(notationLetter, index, CELL_TYPES.CELL, [
@@ -50,7 +46,7 @@ const parseNotationLetter = (state: State, notationLetter: string): NotationStru
   throw new Error('invalid notation');
 };
 
-export const parseNotation = (state: State, notation: string): Move => {
+export const parseNotation = (state: BoardState, notation: string): Move => {
   const source = parseNotationLetter(state, notation[0]);
   const target = parseNotationLetter(state, notation[1]);
   invariant(source.type !== CELL_TYPES.FOUNDATION, 'invalid notation');

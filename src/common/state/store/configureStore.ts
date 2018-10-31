@@ -4,7 +4,7 @@ import rootReducer from '../modules/index';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 
-const configureStore = (preloadedState: Object) => {
+const configureStore = (preloadedState: object) => {
   const store = createStore(
     rootReducer,
     preloadedState,

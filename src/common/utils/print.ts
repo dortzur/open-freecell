@@ -1,6 +1,7 @@
 import produce from 'immer';
 import { SUITS } from 'react-playing-cards';
 import { Card, Cell } from './consts';
+import { BoardState } from '../state/modules/board-module';
 
 const getSuitTextSymbol = (card: Card) => {
   switch (card.suit) {
@@ -26,6 +27,6 @@ const toSimpleState = (state: object) =>
     }, {}),
   );
 
-export const print = (state: object) => {
+export const print = (state: BoardState) => {
   console.log(toSimpleState(state));
 };
