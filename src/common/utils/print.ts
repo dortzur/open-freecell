@@ -1,8 +1,8 @@
 import produce from 'immer';
-import chalk from 'chalk';
 import { SUITS } from 'react-playing-cards';
+import { Card, Cell } from './consts';
 
-const getSuitTextSymbol = (card) => {
+const getSuitTextSymbol = (card: Card) => {
   switch (card.suit) {
     case SUITS.CLUBS:
       return '♣';
@@ -13,18 +13,19 @@ const getSuitTextSymbol = (card) => {
     case SUITS.SPADES:
       return '♠';
   }
+  return null;
 };
-const toSimpleCards = (cell) =>
+const toSimpleCards = (cell: Cell) =>
   cell.map((card) => `${getSuitTextSymbol(card)}${card.id}`);
 
-const toSimpleState = (state) =>
+const toSimpleState = (state: object) =>
   produce(state, (draftState) =>
     Object.entries(draftState).reduce((acc, [key, value]) => {
       acc[key] = value.map(toSimpleCards);
       return acc;
-    }, {})
+    }, {}),
   );
 
-export const print = (state) => {
+export const print = (state: object) => {
   console.log(toSimpleState(state));
 };

@@ -7,7 +7,17 @@ export enum CELL_TYPES {
 export const EMPTY_CELL_VALUE = 0;
 export const KING_VALUE = 13;
 
-export const deck = [
+export interface Card {
+  suit: string,
+  rank: string,
+  value: number,
+  color: string,
+  id: string
+}
+
+export type Cell = Array<Card>;
+
+export const deck: Cell = [
   { suit: 'C', rank: 'A', value: 1, color: 'black', id: 'AC' },
   { suit: 'D', rank: 'A', value: 1, color: 'red', id: 'AD' },
   { suit: 'H', rank: 'A', value: 1, color: 'red', id: 'AH' },

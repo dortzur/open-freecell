@@ -1,10 +1,18 @@
-import { CELL_TYPES } from './consts';
+import { Cell, CELL_TYPES } from './consts';
 
 const invariant = require('invariant');
 export const CELL_NOTATION = ['a', 'b', 'c', 'd'];
 export const TABLEAU_NOTATION = ['1', '2', '3', '4', '5', '6', '7', '8'];
 export const FOUNDATION_NOTATION = ['h'];
-const getNotationStruct = (notation: string, index: number | null, type: CELL_TYPES, value: any[]) => ({
+
+interface NotationStruct {
+  notation: string,
+  index: number | null,
+  type: CELL_TYPES,
+  value: any[]
+}
+
+const getNotationStruct = (notation: string, index: number | null, type: CELL_TYPES, value: Cell | Array<Cell>): NotationStruct => ({
   notation,
   index,
   value,
@@ -17,7 +25,12 @@ interface State {
   foundation: any[]
 }
 
-const parseNotationLetter = (state: State, notationLetter: string) => {
+export interface Move {
+  source: NotationStruct,
+  target: NotationStruct
+}
+
+const parseNotationLetter = (state: State, notationLetter: string): NotationStruct => {
   if (CELL_NOTATION.includes(notationLetter)) {
     const index = CELL_NOTATION.indexOf(notationLetter);
     return getNotationStruct(notationLetter, index, CELL_TYPES.CELL, [
@@ -36,10 +49,13 @@ const parseNotationLetter = (state: State, notationLetter: string) => {
   }
   throw new Error('invalid notation');
 };
-export const parseNotation = (state: State, notation: string) => {
+
+export const parseNotation = (state: State, notation: string): Move => {
   const source = parseNotationLetter(state, notation[0]);
   const target = parseNotationLetter(state, notation[1]);
   invariant(source.type !== CELL_TYPES.FOUNDATION, 'invalid notation');
 
   return { source, target };
 };
+
+
