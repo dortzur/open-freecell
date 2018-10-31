@@ -5,7 +5,7 @@ declare module 'react-playing-cards' {
 }
 
 declare interface Hot {
-    accept:Function
+  accept: Function
 }
 
 declare interface NodeModule {
