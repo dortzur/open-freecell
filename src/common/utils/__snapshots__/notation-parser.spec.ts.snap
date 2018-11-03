@@ -175,12 +175,7 @@ Object {
   "index": null,
   "notation": "h",
   "type": "foundation",
-  "value": Array [
-    Array [],
-    Array [],
-    Array [],
-    Array [],
-  ],
+  "value": Array [],
 }
 `;
 

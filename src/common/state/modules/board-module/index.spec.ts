@@ -1,10 +1,11 @@
-import gameReducer from './';
+import gameReducer, { BoardState } from './';
 import { startGame } from './actions/start-game';
 import { performNotationMove } from './actions/perform-notation-move';
 import { print } from '../../../utils/print';
 import { isCardsCountValid, isGameFinished } from '../../../test/helpers';
+
 describe('board-module', () => {
-  let state = null;
+  let state: BoardState;
   beforeEach(() => {
     state = gameReducer(undefined, startGame(100));
   });
@@ -15,8 +16,8 @@ describe('board-module', () => {
     expect(state.cell[0]).toHaveLength(1);
 
     expect(isCardsCountValid(state)).toBeTrue();
-    state = expect(() =>
-      gameReducer(state, performNotationMove('1a'))
+    expect(() =>
+      gameReducer(state, performNotationMove('1a')),
     ).toThrow();
   });
 

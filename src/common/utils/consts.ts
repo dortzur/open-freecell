@@ -15,9 +15,10 @@ export interface Card {
   id: string
 }
 
-export type Cell = Array<Card>;
 
-export const deck: Cell = [
+export type Cell = Card[];
+
+export const deck: Card[] = [
   { suit: 'C', rank: 'A', value: 1, color: 'black', id: 'AC' },
   { suit: 'D', rank: 'A', value: 1, color: 'red', id: 'AD' },
   { suit: 'H', rank: 'A', value: 1, color: 'red', id: 'AH' },

@@ -1,6 +1,7 @@
 import _ from 'lodash/fp';
-import { areSameColor, getTopCard, getValueDiff } from './utils';
+import { areSameColor, getBottomCard, getTopCard, getValueDiff } from './utils';
 import invariant from 'invariant';
+
 const pushStack = (stack, targetTableauCell) => {
   while (stack.length > 0) {
     targetTableauCell.push(stack.shift());
@@ -13,12 +14,7 @@ const popStack = (cell, count) => {
   }
 };
 
-export const getBottomCard = (resourceTarget) => {
-  if (resourceTarget.value) {
-    return resourceTarget.value[0];
-  }
-  return resourceTarget[0];
-};
+
 export const areDifferentColor = (cardA, cardB) => !areSameColor(cardA, cardB);
 const getMovableCardsCount = (state) => {
   const emptyCells = state.cell.filter(_.isEmpty).length;
@@ -44,7 +40,7 @@ const getMovableStack = (state, move) => {
     sourceCell.length > 0 &&
     areCellsStackable(stack, sourceCell) &&
     stack.length < movableCardsCount
-  ) {
+    ) {
     stack.unshift(sourceCell.pop());
   }
   return stack;
@@ -59,11 +55,11 @@ export const handleTableau = (state, move) => {
     pushStack(movableStack, target.value);
     popStack(source.value, stackLength);
   } else {
-    const targetTopCard = getTopCard(target);
+    const targetTopCard = getTopCard(target.value);
     while (
       movableStack.length > 0 &&
       !areTableauCardsStackable(getBottomCard(movableStack), targetTopCard)
-    ) {
+      ) {
       movableStack.shift();
     }
     invariant(movableStack.length > 0, 'illegal move');

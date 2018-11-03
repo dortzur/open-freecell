@@ -56,11 +56,13 @@
     "jest": "^23.6.0",
     "jest-extended": "^0.11.0",
     "jest-styled-components": "^6.2.2",
-    "razzle": "^2.4.0"
+    "razzle": "^2.4.0",
+    "ts-jest": "^23.10.4"
   },
   "jest": {
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+
+      ".(ts|tsx|js|jsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
       "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
     },
