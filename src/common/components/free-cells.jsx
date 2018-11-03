@@ -1,25 +1,26 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
 
 import styled from 'styled-components';
 import { Cell } from './cell';
 import { getCardsGrid } from '../styles/index';
+import { connect } from 'react-redux';
 
 const FreeCellsContainer = styled.div`
   ${getCardsGrid(4)};
 `;
 
-@connect((state) => ({ cells: state.board.cell }))
-export class FreeCells extends React.PureComponent {
-  static propTypes = {};
-  static defaultProps = {};
-  render() {
-    const { cells } = this.props;
-    return (
-      <FreeCellsContainer>
-        {cells.map((stack, i) => <Cell key={i} stack={stack} />)}
-      </FreeCellsContainer>
-    );
-  }
+
+export function FreeCells(props) {
+  const { cells } = props;
+  return (
+    <FreeCellsContainer>
+      {cells.map((stack, i) => <Cell key={i} stack={stack}/>)}
+    </FreeCellsContainer>
+  );
 }
+
+export default connect((state) => ({ cells: state.board.cell }))(FreeCells);
+
+FreeCells.propTypes = {};
+
+FreeCells.defaultProps = {};

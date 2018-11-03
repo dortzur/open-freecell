@@ -1,6 +1,4 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { modularScale } from 'polished';
@@ -34,21 +32,14 @@ const CardContainer = styled(Card)`
   
 `;
 
-//@ts-ignore
-@connect()
-export class Cell extends React.PureComponent<Props> {
-  static defaultProps = {
-    stack: [],
-  };
 
-  render() {
-    const { stack } = this.props;
-    return (
-      <CellContainer cardsCount={stack.length}>
-        {this.props.stack.map((card) => (
-          <CardContainer size={4} rank={card.rank} suit={card.suit} key={card.id}/>
-        ))}
-      </CellContainer>
-    );
-  }
+export function Cell(props: Props) {
+  const { stack } = props;
+  return (
+    <CellContainer cardsCount={stack.length}>
+      {props.stack.map((card) => (
+        <CardContainer size={4} rank={card.rank} suit={card.suit} key={card.id}/>
+      ))}
+    </CellContainer>
+  );
 }

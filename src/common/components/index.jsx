@@ -1,23 +1,19 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import 'react-playing-cards/lib/main.css';
 import { Board } from './board';
-import Header  from './header';
-import { Footer } from './footer';
+import Header from './header';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 
-export class App extends React.PureComponent {
-  render() {
+export function App() {
 
-    return (
-      <React.Fragment>
-        <CssBaseline>
-          <Header />
-          <Board/>
-          {/*<Footer/>*/}
-        </CssBaseline>
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <CssBaseline>
+        <Header/>
+        <Board/>
+        {/*<Footer/>*/}
+      </CssBaseline>
+    </React.Fragment>
+  );
 }
