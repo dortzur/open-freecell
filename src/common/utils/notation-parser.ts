@@ -9,12 +9,12 @@ export const FOUNDATION_NOTATION = ['h'];
 
 export interface NotationStruct {
   notation: string,
-  index: number | null,
+  index: number,
   type: CELL_TYPES,
   value: Cell
 }
 
-const getNotationStruct = (notation: string, index: number | null, type: CELL_TYPES, value: Cell): NotationStruct => ({
+const getNotationStruct = (notation: string, index: number, type: CELL_TYPES, value: Cell): NotationStruct => ({
   notation,
   index,
   value,
@@ -41,7 +41,8 @@ const parseNotationLetter = (state: BoardState, notationLetter: string, suit?: s
     ]);
   } else if (FOUNDATION_NOTATION.includes(notationLetter) && suit) {
     const foundationCell = getSuitFoundation(state, suit);
-    return getNotationStruct(notationLetter, null, CELL_TYPES.FOUNDATION, foundationCell);
+    const index = state.foundation.indexOf(foundationCell);
+    return getNotationStruct(notationLetter, index, CELL_TYPES.FOUNDATION, foundationCell);
   }
   throw new Error('invalid notation');
 };

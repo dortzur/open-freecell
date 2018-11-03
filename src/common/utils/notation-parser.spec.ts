@@ -13,7 +13,7 @@ describe('notation-parser', () => {
     expect(result.source.index).toEqual(0);
     expect(result.source).toMatchSnapshot();
 
-    expect(result.target.index).toEqual(null);
+    expect(result.target.index).toEqual(0);
     expect(result.target.value).toBeArray();
     expect(result.target).toMatchSnapshot();
     expect(() => parseNotation(state, 'h1')).toThrow();

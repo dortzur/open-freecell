@@ -172,7 +172,7 @@ Object {
 
 exports[`notation-parser should parse moves to home 2`] = `
 Object {
-  "index": null,
+  "index": 0,
   "notation": "h",
   "type": "foundation",
   "value": Array [],

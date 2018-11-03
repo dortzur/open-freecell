@@ -1,8 +1,8 @@
 import produce from 'immer';
 import * as types from './types';
 import { parseNotation } from '../../../utils/notation-parser';
-import { performMove } from '../../../engine';
-import { performAutoMoves } from '../../../engine';
+import { performMove } from '../../../engine/index';
+import { performAutoMoves } from '../../../engine/index';
 import { Cell } from '../../../utils/consts';
 import { AnyAction } from 'redux';
 
