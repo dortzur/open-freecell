@@ -2,15 +2,22 @@ import React from 'react';
 
 import styled from 'styled-components';
 import { Cell } from './cell';
-import { getCardsGrid } from '../styles/index';
+import { getCardsGrid } from '../styles';
 import { connect } from 'react-redux';
+import { Cell as CellType } from '../utils/consts';
+import { State } from '../state/modules';
+
+interface Props {
+  cells: CellType[]
+}
+
 
 const FreeCellsContainer = styled.div`
   ${getCardsGrid(4)};
 `;
 
 
-export function FreeCells(props) {
+export function FreeCells(props: Props) {
   const { cells } = props;
   return (
     <FreeCellsContainer>
@@ -19,8 +26,4 @@ export function FreeCells(props) {
   );
 }
 
-export default connect((state) => ({ cells: state.board.cell }))(FreeCells);
-
-FreeCells.propTypes = {};
-
-FreeCells.defaultProps = {};
+export default connect((state: State) => ({ cells: state.board.cell }))(FreeCells);

@@ -10,10 +10,12 @@ export function App() {
   return (
     <React.Fragment>
       <CssBaseline>
-        <Header/>
-        <Board/>
-        {/*<Footer/>*/}
+        <React.Fragment>
+          <Header/>
+          <Board/>
+        </React.Fragment>
       </CssBaseline>
     </React.Fragment>
   );
 }
+

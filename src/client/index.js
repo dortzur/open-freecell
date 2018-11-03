@@ -2,7 +2,7 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from '../common/state/store/configureStore';
-import { App } from '../common/components';
+import { App } from '../common/components/index';
 import 'typeface-roboto';
 import { theme } from '../common/styles';
 import { MuiThemeProvider } from '@material-ui/core';

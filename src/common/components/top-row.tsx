@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 import FreeCells from './free-cells';
-import { HomeCells } from './home-cells';
+import HomeCells from './home-cells';
 
 
 const TopRowContainer = styled.div`
@@ -20,7 +20,3 @@ export function TopRow() {
     </TopRowContainer>
   );
 }
-
-TopRow.propTypes = {};
-
-TopRow.defaultProps = {};

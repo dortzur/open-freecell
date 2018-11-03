@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 import { modularScale } from 'polished';
 import { Card } from 'react-playing-cards';
+import { Card as CardType } from '../utils/consts';
 
 export interface ContainerProps {
   cardsCount: number
 }
 
 export interface Props {
-  stack: Array<any>
+  stack: CardType[]
 }
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TopRow } from './top-row';
-import { Tableau } from './tableau';
+import Tableau from './tableau';
 
 
 export function Board() {
@@ -11,7 +11,3 @@ export function Board() {
     </div>
   );
 }
-
-Board.propTypes = {};
-
-Board.defaultProps = {};
