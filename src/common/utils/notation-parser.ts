@@ -1,6 +1,6 @@
 import { Cell, CELL_TYPES } from './consts';
 import { BoardState } from '../state/modules/board-module';
-import { getBottomCard, getSuitFoundation } from '../engine/utils';
+import { getSuitFoundation, getTopCard } from '../engine/utils';
 
 const invariant = require('invariant');
 export const CELL_NOTATION = ['a', 'b', 'c', 'd'];
@@ -50,8 +50,8 @@ const parseNotationLetter = (state: BoardState, notationLetter: string, suit?: s
 export const parseNotation = (state: BoardState, notation: string): Move => {
   const source = parseNotationLetter(state, notation[0]);
 
-  const bottomCard = getBottomCard(source.value);
-  const target = parseNotationLetter(state, notation[1], bottomCard && bottomCard.suit);
+  const topCard = getTopCard(source.value);
+  const target = parseNotationLetter(state, notation[1], topCard && topCard.suit);
   invariant(source.type !== CELL_TYPES.FOUNDATION, 'invalid notation');
 
   return { source, target };

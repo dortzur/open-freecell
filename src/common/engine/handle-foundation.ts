@@ -9,7 +9,7 @@ import { Card } from '../utils/consts';
 export const handleFoundation = (state: BoardState, move: Move) => {
   const { source } = move;
   const card = getTopCard(source.value);
-  const foundationCell = getSuitFoundation(state, card.suit);
+  const foundationCell = move.target.value;
 
   if (_.isEmpty(foundationCell)) {
     invariant(card.rank === RANKS.ACE, 'illegal move');
@@ -18,4 +18,5 @@ export const handleFoundation = (state: BoardState, move: Move) => {
     invariant(isFoundationStackable(source.value, foundationCell), 'illegal move');
     foundationCell.push(<Card>source.value.pop());
   }
+  move.target.value = [...foundationCell];
 };
