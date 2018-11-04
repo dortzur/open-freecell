@@ -13,10 +13,10 @@ export const handleFoundation = (state: BoardState, move: Move) => {
 
   if (_.isEmpty(foundationCell)) {
     invariant(card.rank === RANKS.ACE, 'illegal move');
-    foundationCell.push(<Card>source.value.pop());
+    move.target.value = [...foundationCell, <Card>source.value.pop()];
   } else {
     invariant(isFoundationStackable(source.value, foundationCell), 'illegal move');
-    foundationCell.push(<Card>source.value.pop());
+    move.target.value = [...foundationCell, <Card>source.value.pop()];
   }
-  move.target.value = [...foundationCell];
+
 };

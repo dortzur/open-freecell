@@ -70,14 +70,8 @@ export const performAutoMoves = (state: BoardState) => {
 };
 const updateState = (state: BoardState, move: Move) =>
   produce(state, (draftState) => {
-    if (move.source.type !== CELL_TYPES.FOUNDATION) {
-      draftState[move.source.type][move.source.index] = move.source.value;
-    }
-
-    if (move.target.type !== CELL_TYPES.FOUNDATION) {
-      draftState[move.target.type][move.target.index] = move.target.value;
-    }
-
+    draftState[move.source.type][move.source.index] = move.source.value;
+    draftState[move.target.type][move.target.index] = move.target.value;
     return draftState;
   });
 
