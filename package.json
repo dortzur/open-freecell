@@ -27,7 +27,8 @@
     "ramda": "^0.25.0",
     "razzle-plugin-typescript": "^2.4.0",
     "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.6.0",
+    "react-dom": "16.7.0-alpha.0",
+    "react-error-boundary": "^1.2.3",
     "react-jss": "^8.6.1",
     "react-playing-cards": "^0.5.3",
     "react-redux": "^5.1.0",
@@ -61,7 +62,6 @@
   },
   "jest": {
     "transform": {
-
       ".(ts|tsx|js|jsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
       "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
