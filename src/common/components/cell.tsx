@@ -1,9 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { HTMLProps, ReactElement, ReactHTML, ReactHTMLElement } from 'react';
+import styled, { StyledComponent, StyledFunction, ThemedStyledFunction } from 'styled-components';
 
 import { modularScale } from 'polished';
 import { Card } from 'react-playing-cards';
 import { Card as CardType } from '../utils/consts';
+import { CardProps } from 'react-playing-cards/lib/components/card';
 
 export interface ContainerProps {
   cardsCount: number
@@ -26,8 +27,9 @@ const CellContainer = styled.div<ContainerProps>`
 `;
 
 
-const CardContainer = styled(Card)`
-  &&{
+const CardContainer = styled(Card)<CardProps>`
+  &&{    
+ 
     margin-top: -100px;
   }
   

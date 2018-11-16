@@ -19,10 +19,10 @@ const getSuitTextSymbol = (card: Card) => {
 const toSimpleCards = (cell: Cell) =>
   cell.map((card) => `${getSuitTextSymbol(card)}${card.id}`);
 
-const toSimpleState = (state: object) =>
+const toSimpleState = (state: any) =>
   produce(state, (draftState) =>
     Object.entries(draftState).reduce((acc, [key, value]) => {
-      acc[key] = value.map(toSimpleCards);
+      acc[key] = (value as Array<Cell>).map(toSimpleCards);
       return acc;
     }, {}),
   );

@@ -11,9 +11,6 @@
   "dependencies": {
     "@material-ui/core": "^3.3.1",
     "@material-ui/icons": "^3.0.1",
-    "@types/invariant": "^2.2.29",
-    "@types/lodash": "^4.14.117",
-    "@types/react-redux": "^6.0.9",
     "chalk": "^2.4.1",
     "express": "^4.16.4",
     "fs-extra": "^7.0.0",
@@ -31,7 +28,7 @@
     "react-draggable": "^3.0.5",
     "react-error-boundary": "^1.2.3",
     "react-jss": "^8.6.1",
-    "react-playing-cards": "^0.6.0",
+    "react-playing-cards": "^0.6.1",
     "react-redux": "^5.1.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
@@ -46,6 +43,9 @@
     "typescript": "^3.1.4"
   },
   "devDependencies": {
+    "@types/invariant": "^2.2.29",
+    "@types/lodash": "^4.14.117",
+    "@types/react-redux": "^6.0.9",
     "@types/jest": "^23.3.8",
     "@types/styled-components": "^4.0.3",
     "babel-eslint": "^10.0.1",
