@@ -29,6 +29,7 @@
     "react-error-boundary": "^1.2.3",
     "react-jss": "^8.6.1",
     "react-playing-cards": "^0.6.1",
+    "react-pose": "^4.0.2",
     "react-redux": "^5.1.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
@@ -44,9 +45,9 @@
   },
   "devDependencies": {
     "@types/invariant": "^2.2.29",
+    "@types/jest": "^23.3.8",
     "@types/lodash": "^4.14.117",
     "@types/react-redux": "^6.0.9",
-    "@types/jest": "^23.3.8",
     "@types/styled-components": "^4.0.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-styled-components": "^1.8.0",
